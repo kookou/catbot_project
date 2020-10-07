@@ -94,11 +94,10 @@ class YogiyoCrawler:
             id = list_data[index]
             url = f"https://www.yogiyo.co.kr/api/v1/reviews/{id}"
             ajson = self.get_json(url)
-            if isinstance(ajson[0], dict):
-                json_list.append(ajson)
-            
+
             print(f'{index}번 크롤링 중')
-            
+
+
             
 
         file_path = f"/Users/kuku/Desktop/Yogiyo/review/data/review(seoul)/yogiyo_review({start}~{end}).json"
