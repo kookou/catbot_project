@@ -8,6 +8,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
+import Rating from '@material-ui/lab/Rating';
+
 
 const useStyles = makeStyles({
   card: {
@@ -20,8 +22,30 @@ const useStyles = makeStyles({
     width: 300,
     height: 300,
   },
+  shopMain : {
+    marginBottom : 50,
+    marginTop : 50,
+  },
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    '& > * + *': {
+      
+    },
+  },
   
 });
+
+function HalfRating() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(2);
+  return (
+    <div className={classes.root}>
+      <Rating name="read-only" value={value} readOnly />
+    </div>
+  );
+}
+
 
 export default function FeaturedPostReview(props) {
   const classes = useStyles();
@@ -29,8 +53,8 @@ export default function FeaturedPostReview(props) {
 
   return (
     <Grid item xs={12} md={12}>
-      <CardActionArea component="a" href="#">
-        <Card className={classes.card}>
+      <Grid className={classes.shopMain}>
+        <Grid className={classes.card}>
           <Hidden xsDown>
             <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />
           </Hidden>
@@ -39,6 +63,7 @@ export default function FeaturedPostReview(props) {
               <Typography component="h2" variant="h5">
                 {post.title}
               </Typography>
+              <HalfRating/>
               <Typography variant="subtitle1" color="textSecondary">
                 {post.date}
               </Typography>
@@ -46,13 +71,12 @@ export default function FeaturedPostReview(props) {
                 {post.description}
               </Typography>
               <Typography variant="subtitle1" color="primary">
-                이건뭔데
+                {post.time}
               </Typography>
             </CardContent>
           </div>
-          
-        </Card>
-      </CardActionArea>
+        </Grid>
+      </Grid>
     </Grid>
   );
 }

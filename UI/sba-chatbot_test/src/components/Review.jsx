@@ -13,11 +13,12 @@ import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPostReview from './FeaturedPostReview';
 import Main from './Main';
-import Shoptitle from './Shoptitle';
+import ShoptitleReview from './ShoptitleReview';
 import Footer from './Footer';
 import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
+
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -57,9 +58,11 @@ const featuredPosts = [
   {
     image: 'https://source.unsplash.com/random',
     title: '네네치킨',
-    date: 'Nov 12',
+    date: '최소 주문 금액 : 14,000',
     description:
-      '뿌링치즈 먹고싶다.',
+      '결제 신용카드, 현금',
+    time:
+      '배달 소요 시간 75~90분',
     imageText: '네네 메인',
   },
 
@@ -130,12 +133,11 @@ const Review = () =>
               <FeaturedPostReview key={post.title} post={post} />
             ))}
           </Grid>
-          <CenteredTabs/>
 
 
           <Grid container spacing={5} className={useStyles.mainGrid}>
-            <Main title="리뷰보기" posts={posts} />
-            <Shoptitle
+            {/* <Main title="리뷰보기" posts={posts} /> */}
+            <ShoptitleReview
               title={sidebar.title}
               description={sidebar.description}
             //   archives={sidebar.archives}
