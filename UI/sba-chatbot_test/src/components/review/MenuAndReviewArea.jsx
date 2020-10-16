@@ -4,23 +4,22 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import FeaturedPostReview_sum from './FeaturedPostReview_sum';
-import FeaturedPostMenu_sum from './FeaturedPostMenu_sum';
-// import PropTypes from 'prop-types';
+import ReviewDescription from './ReviewDescription';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
   },
+
 }));
 
-const featuredPosts = [
+const reviewdescription = [
   {
     image: 'https://source.unsplash.com/random',
     title: 'ba**님',
@@ -30,6 +29,17 @@ const featuredPosts = [
     imageText: '네네 메인',
   },
 ];
+
+const reviewdescription2 = [
+  {
+    image: 'https://source.unsplash.com/random',
+    title: 'ba**님',
+    date: '순살치킨 ＋ 순살치킨/1(순살 소스선택(후라이드),순살 소스선택(간장),기본음료선택(콜라사이즈업),추가선택(무추가))',
+    description:
+      'sdfglsdjglsdfjglkasdlfjasjdflkajsdflkjalskdfjlwjf18181ㅣ널미나러ㅣ저ㅣㅏㄴ어림저ㅣ더ㅣ머니ㅏㅇ러라ㅓ민ㅇ러ㅣㅏㅁ저디ㅏ럼니ㅏ어리ㅏㅁ너아러ㅏㅣㅁ넝리ㅓㅁㄴ이러',
+    imageText: '네네 메인',
+  },
+]
 
 
 function TabPanel(props) {
@@ -77,7 +87,7 @@ function LinkTab(props) {
   );
 }
 
-export default function ShoptitleReview(props) {
+export default function MenuAndReviewArea(props) {
   const classes = useStyles();
   const { archives, description, social, title } = props;
   const [value, setValue] = React.useState(0);
@@ -95,10 +105,9 @@ export default function ShoptitleReview(props) {
           variant="fullWidth"
           value={value}
           onChange={handleChange}
-          aria-label="nav tabs example"
         >
-          <LinkTab label="메뉴보기" href="/drafts" {...a11yProps(0)} />
-          <LinkTab label="리뷰보기" href="/trash" {...a11yProps(1)} />
+          <LinkTab label="메뉴보기"  {...a11yProps(0)} />
+          <LinkTab label="리뷰보기" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -106,12 +115,14 @@ export default function ShoptitleReview(props) {
       </TabPanel>
       <TabPanel value={value} index={1}>
           <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPostReview_sum key={post.title} post={post} />
+            {reviewdescription.map((post) => (
+              <ReviewDescription key={post.title} post={post} />
             ))}
-            <hr/>
-            {featuredPosts.map((post) => (
-              <FeaturedPostReview_sum key={post.title} post={post} />
+          </Grid>
+          <Divider variant="middle" />
+          <Grid container spacing={4}>
+            {reviewdescription2.map((post) => (
+              <ReviewDescription key={post.title} post={post} />
             ))}
           </Grid>
       </TabPanel>
@@ -120,7 +131,7 @@ export default function ShoptitleReview(props) {
   );
 }
 
-ShoptitleReview.propTypes = {
+MenuAndReviewArea.propTypes = {
   archives: PropTypes.array,
   description: PropTypes.string,
   social: PropTypes.array,

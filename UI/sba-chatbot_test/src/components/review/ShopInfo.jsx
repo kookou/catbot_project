@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReviewImage from './ReviewImage';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -20,12 +19,12 @@ const useStyles = makeStyles({
     flex: 1,
   },
   cardMedia: {
-    width: 150,
-    height: 150,
+    width: 300,
+    height: 300,
   },
   shopMain : {
-    marginBottom : 0,
-    marginTop : 0,
+    marginBottom : 50,
+    marginTop : 50,
   },
   root: {
     display: 'flex',
@@ -48,17 +47,20 @@ function HalfRating() {
 }
 
 
-export default function FeaturedPostReview_sum(props) {
+export default function ShopInfo(props) {
   const classes = useStyles();
   const { post } = props;
 
   return (
-    <Grid item xs={12}>
-      <Grid item md={12} className={classes.shopMain}>
+    <Grid item xs={12} md={12}>
+      <Grid className={classes.shopMain}>
         <Grid className={classes.card}>
+          <Hidden xsDown>
+            <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />
+          </Hidden>
           <div className={classes.cardDetails}>
             <CardContent>
-              <Typography component="h6" variant="h6">
+              <Typography component="h2" variant="h5">
                 {post.title}
               </Typography>
               <HalfRating/>
@@ -68,20 +70,17 @@ export default function FeaturedPostReview_sum(props) {
               <Typography variant="subtitle1" paragraph>
                 {post.description}
               </Typography>
-              <Hidden xsDown>
-              {/* <CardMedia className={classes.cardMedia} image={post.image}  title={post.imageTitle} /> */}
-              <ReviewImage/>              
-              </Hidden>
+              <Typography variant="subtitle1" color="primary">
+                {post.time}
+              </Typography>
             </CardContent>
-            
           </div>
         </Grid>
       </Grid>
     </Grid>
-    
   );
 }
 
-FeaturedPostReview_sum.propTypes = {
+ShopInfo.propTypes = {
   post: PropTypes.object,
 };

@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
 }));
  
 const sections = [
-  { title: 'Technology', url: '/signin' },
-  { title: 'Design', url: '/review' },
-  { title: 'Culture', url: '#' },
+  { title: '로그인', url: './signin' },
+  { title: '리뷰보기', url: '/review' },
+  { title: '리뷰쓰기', url: '/reviewwrite' },
   { title: 'Business', url: '#' },
   { title: 'Politics', url: '#' },
   { title: 'Opinion', url: '#' },

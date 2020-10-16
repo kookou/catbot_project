@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReviewImage from './ReviewImage';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -19,12 +20,12 @@ const useStyles = makeStyles({
     flex: 1,
   },
   cardMedia: {
-    width: 300,
-    height: 300,
+    width: 150,
+    height: 150,
   },
   shopMain : {
-    marginBottom : 50,
-    marginTop : 50,
+    marginBottom : 0,
+    marginTop : 0,
   },
   root: {
     display: 'flex',
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
 
 function HalfRating() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(2);
+  const [value, setValue] = React.useState(4);
   return (
     <div className={classes.root}>
       <Rating name="read-only" value={value} readOnly />
@@ -47,20 +48,17 @@ function HalfRating() {
 }
 
 
-export default function FeaturedPostReview(props) {
+export default function ReviewDescription(props) {
   const classes = useStyles();
   const { post } = props;
 
   return (
-    <Grid item xs={12} md={12}>
-      <Grid className={classes.shopMain}>
+    <Grid item xs={12}>
+      <Grid item md={12} className={classes.shopMain}>
         <Grid className={classes.card}>
-          <Hidden xsDown>
-            <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />
-          </Hidden>
           <div className={classes.cardDetails}>
             <CardContent>
-              <Typography component="h2" variant="h5">
+              <Typography component="h6" variant="h6">
                 {post.title}
               </Typography>
               <HalfRating/>
@@ -70,17 +68,18 @@ export default function FeaturedPostReview(props) {
               <Typography variant="subtitle1" paragraph>
                 {post.description}
               </Typography>
-              <Typography variant="subtitle1" color="primary">
-                {post.time}
-              </Typography>
+              <Hidden xsDown>
+              <ReviewImage/>              
+              </Hidden>
             </CardContent>
           </div>
         </Grid>
       </Grid>
     </Grid>
+    
   );
 }
 
-FeaturedPostReview.propTypes = {
+ReviewDescription.propTypes = {
   post: PropTypes.object,
 };

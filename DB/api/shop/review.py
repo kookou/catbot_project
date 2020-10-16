@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, Float, String, Date, Text, ForeignKey, create_engine
-from api.ext.db import Base
-from api.shop.shop import Shop
-from api.user.user import User
-from api.food.food import Food
+from ext.db import Base
+from shop.shop import Shop
+from user.user import User
+from food.food import Food
 from sqlalchemy.orm import sessionmaker
 # from sqlalchemy.dialects.mysql import DECIMAL, VARCHAR, LONGTEXT
 

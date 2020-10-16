@@ -12,6 +12,13 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
+import InputBase from '@material-ui/core/InputBase';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
+import DirectionsIcon from '@material-ui/icons/Directions';
 // https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/sign-up
 
 const Copyright = () => {
@@ -45,6 +52,23 @@ const useStyles = makeStyles((theme) => ({
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
+    root: {
+      padding: '2px 4px',
+      display: 'flex',
+      alignItems: 'center',
+      width: 400,
+    },
+    input: {
+      marginLeft: theme.spacing(1),
+      flex: 1,
+    },
+    iconButton: {
+      padding: 10,
+    },
+    divider: {
+      height: 28,
+      margin: 4,
+    },
   }));
 
 
@@ -62,29 +86,19 @@ const Signup = () => {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 autoComplete="fname"
-                name="firstName"
+                name="nick"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
-                label="First Name"
+                id="nick"
+                label="Nick"
                 autoFocus
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-              />
-            </Grid>
+            
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -109,12 +123,35 @@ const Signup = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password"
+                label="Password Check"
+                type="password"
+                id="password"
+                autoComplete="current-password"
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password"
+                label="위치 설정 하기"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+
+              />
+            </Grid>
+            
           </Grid>
+
+
+
           <Button
             type="submit"
             fullWidth
@@ -126,8 +163,8 @@ const Signup = () => {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
+              <Link href="/signin" variant="body2">
+                이미 회원이신가요?
               </Link>
             </Grid>
           </Grid>

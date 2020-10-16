@@ -23,7 +23,7 @@ const Copyright = () =>{
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
         <Link color="inherit" href="https://material-ui.com/">
-          Your Website
+          챗봇
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -98,17 +98,17 @@ const SignIn = () => {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Login
             </Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
-                  Forgot password?
+                  패스워드 찾기
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="/signup" variant="body2">
+                  {"아직 회원이 아니신가요?"}
                 </Link>
               </Grid>
             </Grid>
