@@ -2,3 +2,5 @@
 export {default as Blog} from './Blog'
 export {default as SignIn} from './SignIn'
 export {default as Review} from './Review'
+export {default as ReviewWrite} from './ReviewWrite'
+

@@ -9,7 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import FeaturedPostReview_sum from './FeaturedPostReview_sum';
+import FeaturedPostReviewWrite from './FeaturedPostReviewWrite';
 import FeaturedPostMenu_sum from './FeaturedPostMenu_sum';
 // import PropTypes from 'prop-types';
 
@@ -77,7 +77,7 @@ function LinkTab(props) {
   );
 }
 
-export default function ShoptitleReview(props) {
+export default function ReviewWriteSub(props) {
   const classes = useStyles();
   const { archives, description, social, title } = props;
   const [value, setValue] = React.useState(0);
@@ -90,37 +90,13 @@ export default function ShoptitleReview(props) {
   return (
     <Grid item xs={12} md={12}>
        <div className={classes.root}>
-      <AppBar position="static">
-        <Tabs
-          variant="fullWidth"
-          value={value}
-          onChange={handleChange}
-          aria-label="nav tabs example"
-        >
-          <LinkTab label="메뉴보기" href="/drafts" {...a11yProps(0)} />
-          <LinkTab label="리뷰보기" href="/trash" {...a11yProps(1)} />
-        </Tabs>
-      </AppBar>
-      <TabPanel value={value} index={0}>
-         
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-          <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPostReview_sum key={post.title} post={post} />
-            ))}
-            <hr/>
-            {featuredPosts.map((post) => (
-              <FeaturedPostReview_sum key={post.title} post={post} />
-            ))}
-          </Grid>
-      </TabPanel>
+     
     </div>
     </Grid>
   );
 }
 
-ShoptitleReview.propTypes = {
+ReviewWriteSub.propTypes = {
   archives: PropTypes.array,
   description: PropTypes.string,
   social: PropTypes.array,

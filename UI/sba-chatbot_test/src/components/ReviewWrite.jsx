@@ -13,7 +13,7 @@ import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPostReview from './FeaturedPostReview';
 import Main from './Main';
-import ShoptitleReview from './ShoptitleReview';
+import ReviewWriteSub from './ReviewWriteSub';
 import Footer from './Footer';
 import post1 from './blog-post.1.md'; 
 import post2 from './blog-post.2.md';
@@ -111,7 +111,7 @@ const Review = () =>
 
           <Grid container spacing={5} className={useStyles.mainGrid}>
             {/* <Main title="리뷰보기" posts={posts} /> */}
-            <ShoptitleReview
+            <ReviewWriteSub
               title={sidebar.title}
               description={sidebar.description}
             //   archives={sidebar.archives}

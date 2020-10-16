@@ -1,5 +1,5 @@
 import React from 'react'
-import {SignIn, Review, Events, Blog, Products, Error} from '../components'
+import {SignIn, Review, Events, Blog, ReviewWrite, Error} from '../components'
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 
 
@@ -10,6 +10,7 @@ const Main = () => <>
                     <Route exact path="/" component={Blog}/>
                     <Route path="/signin" component={Blog}/>
                     <Route path="/review" component={Review}/>
+                    <Route path="/reviewwrite" component={ReviewWrite}/>
                     {/* <Redirect from={"/history"} to ={"/about/history"}/>
                     <Redirect from={"/services"} to ={"/about/services"}/>
                     <Redirect from={"/location"} to ={"/about/location"}/>
