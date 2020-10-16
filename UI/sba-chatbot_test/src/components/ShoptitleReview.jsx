@@ -10,6 +10,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import FeaturedPostReview_sum from './FeaturedPostReview_sum';
+import FeaturedPostMenu_sum from './FeaturedPostMenu_sum';
 // import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
@@ -22,16 +23,12 @@ const useStyles = makeStyles((theme) => ({
 const featuredPosts = [
   {
     image: 'https://source.unsplash.com/random',
-    title: '네네치킨',
-    date: '최소 주문 금액 : 14,000',
+    title: 'ba**님',
+    date: '순살치킨 ＋ 순살치킨/1(순살 소스선택(후라이드),순살 소스선택(간장),기본음료선택(콜라사이즈업),추가선택(무추가))',
     description:
-      '결제 신용카드, 현금',
-    time:
-      '배달 소요 시간 75~90분',
+      '으아아아아아 리엑트 너무 어려워 미친 화면단 어케 만들어야되냐 죽을거 같다 왜이렇게 왔다갔다해 복잡해 죽겠네 정신 없어 야ㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑ발 으아아아아아아아아아',
     imageText: '네네 메인',
   },
-
-
 ];
 
 
@@ -105,10 +102,22 @@ export default function ShoptitleReview(props) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-          메에에에에에에뉴우우우우ㅜ우우
+          <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+              <FeaturedPostReview_sum key={post.title} post={post} />
+            ))}
+            <hr/>
+            {featuredPosts.map((post) => (
+              <FeaturedPostReview_sum key={post.title} post={post} />
+            ))}
+          </Grid>
       </TabPanel>
       <TabPanel value={value} index={1}>
           <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+              <FeaturedPostReview_sum key={post.title} post={post} />
+            ))}
+            <hr/>
             {featuredPosts.map((post) => (
               <FeaturedPostReview_sum key={post.title} post={post} />
             ))}

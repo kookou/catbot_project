@@ -15,7 +15,7 @@ import FeaturedPostReview from './FeaturedPostReview';
 import Main from './Main';
 import ShoptitleReview from './ShoptitleReview';
 import Footer from './Footer';
-import post1 from './blog-post.1.md';
+import post1 from './blog-post.1.md'; 
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
 
@@ -29,8 +29,6 @@ const useStyles = makeStyles((theme) => ({
   },
   
 }));
-
-
 
 const sections = [
   { title: 'Technology', url: './signin' },
@@ -95,29 +93,6 @@ const sidebar = {
 };
 
 
-function CenteredTabs() {
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-    };
-
-    return (
-        <Paper className={useStyles.root}>
-            <Tabs
-                value={value}
-                onChange={handleChange}
-                indicatorColor="primary"
-                textColor="primary"
-                centered
-            >
-                <Tab label="Item One" />
-                <Tab label="Item Two" />
-                
-            </Tabs>
-        </Paper>
-    );
-  }
   
 const Review = () => 
 
@@ -133,7 +108,6 @@ const Review = () =>
               <FeaturedPostReview key={post.title} post={post} />
             ))}
           </Grid>
-
 
           <Grid container spacing={5} className={useStyles.mainGrid}>
             {/* <Main title="리뷰보기" posts={posts} /> */}
