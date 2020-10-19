@@ -7,10 +7,6 @@ import Header from '../Header';
 import ShopInfo from './ShopInfo';
 import MenuAndReviewArea from './MenuAndReviewArea';
 import Footer from '../Footer';
-import post1 from '../blog-post.1.md'; 
-import post2 from '../blog-post.2.md';
-import post3 from '../blog-post.3.md';
-
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -26,7 +22,6 @@ const sections = [
   { title: '로그인', url: './signin' },
   { title: '리뷰보기', url: '/review' },
   { title: '리뷰쓰기', url: '/reviewwrite' },
-  { title: '회원정보', url: '/userinfo' },
   { title: '마이페이지', url: '/userpage' },
   { title: 'Opinion', url: '#' },
   { title: 'Science', url: '#' },
@@ -49,8 +44,7 @@ const shopInfo = [
 
 ];
 
-const posts = [post1, post2, post3];
-  
+
 const Review = () => 
 
 <React.Fragment>

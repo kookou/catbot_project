@@ -21,8 +21,24 @@ const useStyles = makeStyles((theme) => ({
 
 const reviewdescription = [
   {
-    image: 'https://source.unsplash.com/random',
     title: 'ba**님',
+    image: 'https://source.unsplash.com/random',
+    date: '순살치킨 ＋ 순살치킨/1(순살 소스선택(후라이드),순살 소스선택(간장),기본음료선택(콜라사이즈업),추가선택(무추가))',
+    description:
+      '으아아아아아 리엑트 너무 어려워 미친 화면단 어케 만들어야되냐 죽을거 같다 왜이렇게 왔다갔다해 복잡해 죽겠네 정신 없어 야ㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑ발 으아아아아아아아아아',
+    imageText: '네네 메인',
+  },
+  {
+    title: 'ba**님',
+    image: 'https://source.unsplash.com/random',
+    date: '순살치킨 ＋ 순살치킨/1(순살 소스선택(후라이드),순살 소스선택(간장),기본음료선택(콜라사이즈업),추가선택(무추가))',
+    description:
+      '으아아아아아 리엑트 너무 어려워 미친 화면단 어케 만들어야되냐 죽을거 같다 왜이렇게 왔다갔다해 복잡해 죽겠네 정신 없어 야ㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑ발 으아아아아아아아아아',
+    imageText: '네네 메인',
+  },
+  {
+    title: 'ba**님',
+    image: 'https://source.unsplash.com/random',
     date: '순살치킨 ＋ 순살치킨/1(순살 소스선택(후라이드),순살 소스선택(간장),기본음료선택(콜라사이즈업),추가선택(무추가))',
     description:
       '으아아아아아 리엑트 너무 어려워 미친 화면단 어케 만들어야되냐 죽을거 같다 왜이렇게 왔다갔다해 복잡해 죽겠네 정신 없어 야ㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑ발 으아아아아아아아아아',
@@ -30,16 +46,6 @@ const reviewdescription = [
   },
 ];
 
-const reviewdescription2 = [
-  {
-    image: 'https://source.unsplash.com/random',
-    title: 'ba**님',
-    date: '순살치킨 ＋ 순살치킨/1(순살 소스선택(후라이드),순살 소스선택(간장),기본음료선택(콜라사이즈업),추가선택(무추가))',
-    description:
-      'sdfglsdjglsdfjglkasdlfjasjdflkajsdflkjalskdfjlwjf18181ㅣ널미나러ㅣ저ㅣㅏㄴ어림저ㅣ더ㅣ머니ㅏㅇ러라ㅓ민ㅇ러ㅣㅏㅁ저디ㅏ럼니ㅏ어리ㅏㅁ너아러ㅏㅣㅁ넝리ㅓㅁㄴ이러',
-    imageText: '네네 메인',
-  },
-]
 
 
 function TabPanel(props) {
@@ -119,12 +125,7 @@ export default function MenuAndReviewArea(props) {
               <ReviewDescription key={post.title} post={post} />
             ))}
           </Grid>
-          
-          <Grid container spacing={4}>
-            {reviewdescription2.map((post) => (
-              <ReviewDescription key={post.title} post={post} />
-            ))}
-          </Grid>
+
       </TabPanel>
     </div>
     </Grid>

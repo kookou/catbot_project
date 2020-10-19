@@ -18,17 +18,16 @@ import Pagination from '@material-ui/lab/Pagination';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        width: 670,
+        
     },
+
     paper: {
-        padding: theme.spacing(2),
-        margin: 'auto',
-        maxWidth: 500,
+        marginTop: theme.spacing(1),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
     },
-    image: {
-        width: 128,
-        height: 128,
-    },
+
     img: {
         margin: 'auto',
         display: 'block',
@@ -40,105 +39,61 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.secondary.main,
     },
     inline: {
-        display: 'inline',
+        // display: 'inline',
     },
     marginzero: {
         margin: 0,
     },
-    pagi : {
-        '& > *': {
-            marginTop: theme.spacing(2),
-          },
-    }
+
+    listtext: {
+       paddingRight : 100,
+    },
+
+    paddingzero:{
+        padding : 0,
+    },
+
 }));
 
-
-export default function UserDeliveryList() {
+const UserDeliveryList = (props) => {
     const classes = useStyles();
+    const { post } = props;
 
     return (
-        <List className={classes.root}>
-            <ListItem alignItems="flex-start">
+        <div className={classes.paper}>
 
-                <ListItemText
-                    primary="Brunch this weekend?"
-                    secondary={
-                        <React.Fragment>
-                            <Typography
-                                component="span"
-                                variant="body2"
-                                className={classes.inline}
-                                color="textPrimary"
-                            >
-                                Ali Connors
-                  </Typography>
-                            {" — I'll be in your neighborhood doing errands this…"}
-                        </React.Fragment>
-                    }
-                />
-                <ListItemSecondaryAction>
-                    <Button variant="outlined" color="primary" href="#outlined-buttons" >
-                        리뷰쓰기
-                </Button>
-                </ListItemSecondaryAction>
-
-            </ListItem>
-            <Divider variant="inset" component="li" variant="middle" />
-            <ListItem alignItems="flex-start">
-
-                <ListItemText
-                    primary="Summer BBQ"
-                    secondary={
-                        <React.Fragment>
-                            <Typography
-                                component="span"
-                                variant="body2"
-                                className={classes.inline}
-                                color="textPrimary"
-                            >
-                                to Scott, Alex, Jennifer
-                  </Typography>
-                            {" — Wish I could come, but I'm out of town this…"}
-                        </React.Fragment>
-                    }
-                />
-                <ListItemSecondaryAction>
-                    <Button variant="outlined" color="primary" href="#outlined-buttons" >
-                        리뷰쓰기
-                </Button>
-                </ListItemSecondaryAction>
-
-            </ListItem>
-            <Divider variant="inset" component="li" variant="middle" />
-            <ListItem alignItems="flex-start">
-
-                <ListItemText
-                    primary="Oui Oui"
-                    secondary={
-                        <React.Fragment>
-                            <Typography
-                                component="span"
-                                variant="body2"
-                                className={classes.inline}
-                                color="textPrimary"
-                            >
-                                Sandra Adams
-                  </Typography>
-                            {' — Do you have Paris recommendations? Have you ever…'}
-                        </React.Fragment>
-                    }
-                />
-                <ListItemSecondaryAction>
-                    <Button variant="outlined" color="primary" href="#outlined-buttons" >
-                        리뷰쓰기
-                </Button>
-                </ListItemSecondaryAction>
-            </ListItem>
-            <div className={classes.pagi}>
-
-                <Pagination count={10} color="secondary" />
-            </div>
-        </List>
+            <Grid container item xs={12}>
+                <List className={classes.root}>
+                    <ListItem alignItems="flex-start">
+                        <ListItemText 
+                            primary={post.shop}
+                            variant="h6"
+                            secondary={
+                                <React.Fragment>
+                                    <Typography 
+                                        component="span"
+                                        variant="body2"
+                                        className={classes.inline}
+                                        color="textPrimary"
+                                    >
+                                        {post.date}
+                                    </Typography>
+                                    <Typography color="textSecondary" className={classes.listtext}>{post.menu}</Typography>
+                                </React.Fragment>
+                            }
+                        />
+                        <ListItemSecondaryAction>
+                            <Button variant="outlined" color="primary" href="#outlined-buttons" >
+                                리뷰쓰기
+                            </Button>
+                        </ListItemSecondaryAction>
+                    </ListItem>
+                    <Divider variant="inset" component="li" variant="middle" />
+                </List>
+            </Grid>
+        </div>
 
     );
 }
+
+export default UserDeliveryList

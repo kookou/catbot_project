@@ -26,7 +26,6 @@ const sections = [
     { title: '로그인', url: './signin' },
     { title: '리뷰보기', url: '/review' },
     { title: '리뷰쓰기', url: '/reviewwrite' },
-    { title: '회원정보', url: '/userinfo' },
     { title: '마이페이지', url: '/userpage' },
     { title: 'Opinion', url: '#' },
     { title: 'Science', url: '#' },
