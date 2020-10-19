@@ -26,8 +26,8 @@ const sections = [
   { title: '로그인', url: './signin' },
   { title: '리뷰보기', url: '/review' },
   { title: '리뷰쓰기', url: '/reviewwrite' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
+  { title: '회원정보', url: '/userinfo' },
+  { title: '마이페이지', url: '/userpage' },
   { title: 'Opinion', url: '#' },
   { title: 'Science', url: '#' },
   { title: 'Health', url: '#' },
@@ -68,8 +68,8 @@ const Review = () =>
             <MenuAndReviewArea/>
           </Grid>
         </main>
-      </Container>
       <Footer title="Footer" description="Something here to give the footer a purpose!" />
+      </Container>
     </React.Fragment>
 
 export default Review

@@ -19,7 +19,11 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import DirectionsIcon from '@material-ui/icons/Directions';
+import SettingsIcon from '@material-ui/icons/Settings';
+import Icon from '@material-ui/core/Icon';
 import GpsFixedIcon from '@material-ui/icons/GpsFixed';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 // https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/sign-up
 
 const Copyright = () => {
@@ -36,14 +40,12 @@ const Copyright = () => {
 }
 
 const useStyles = makeStyles((theme) => ({
-  location: {
-    margin: theme.spacing(1, 0, 2),
-  },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(1),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    width: 650,
   },
   avatar: {
     margin: theme.spacing(1),
@@ -55,13 +57,12 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(1, 0, 2),
-    height: 45
+    height:45
   },
   root: {
     padding: '2px 4px',
-    display: 'flex',
     alignItems: 'center',
-    width: 400,
+    
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -74,20 +75,26 @@ const useStyles = makeStyles((theme) => ({
     height: 28,
     margin: 4,
   },
+  location :{
+    margin: theme.spacing(1, 0, 2),
+  },
+  width:{
+    // width:"50%"
+  },
 }));
 
 
-const Signup = () => {
+
+const UserInfo = () => {
   const classes = useStyles();
   return <>
-    <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          회원가입
+          회원정보 수정
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -121,7 +128,7 @@ const Signup = () => {
                 required
                 fullWidth
                 name="password"
-                label="비밀번호"
+                label="현재 비밀번호"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -133,12 +140,25 @@ const Signup = () => {
                 required
                 fullWidth
                 name="password"
-                label="비밀번호 확인"
+                label="새로운 비밀번호"
                 type="password"
                 id="password"
                 autoComplete="current-password"
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password"
+                label="새로운 비밀번호 확인"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+            </Grid>
+
             <Grid item xs={12}>
               <Typography variant="h6" align="center">
                 지역 설정
@@ -166,9 +186,6 @@ const Signup = () => {
             </Grid>
 
           </Grid>
-
-
-
           <Button
             type="submit"
             fullWidth
@@ -176,22 +193,12 @@ const Signup = () => {
             color="primary"
             className={classes.submit}
           >
-            회원가입 온료
+            수정 완료
           </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="/signin" variant="body2">
-                이미 회원이신가요?
-              </Link>
-            </Grid>
-          </Grid>
+
         </form>
       </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-    </Container>
   </>
 }
 
-export default Signup
+export default UserInfo

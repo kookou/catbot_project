@@ -45,7 +45,7 @@ export default function ReviewImage() {
 
   return (
     <div className={classes.root}>
-        <GridList cellHeight={300} className={classes.gridList} cols={tileData.length}>
+        <GridList cellHeight={200} className={classes.gridList} cols={tileData.length}>
         {tileData.map((tile) => (
             <GridListTile key={tile.img} cols={tile.cols || 1}>
             <img src={tile.img} alt={tile.title} />

@@ -112,7 +112,7 @@ export default function ReviewWriteSub(props) {
           </Typography>
         </Grid>
         <Grid container justify="center" item xs={12} md={12} className={classes.margin}>
-          <Grid container item xs={4} md={2} alignItems="center" justify="center">
+          <Grid container item xs={12} md={3} alignItems="center" justify="center">
             <Grid container>
               <Grid item xs>
                 <Typography gutterBottom variant="h6">

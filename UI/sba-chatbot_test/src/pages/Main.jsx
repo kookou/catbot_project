@@ -1,5 +1,5 @@
 import React from 'react'
-import {SignIn, Review, SignUp, Blog, ReviewWrite, Error} from '../components'
+import {SignIn, Review, SignUp, Blog, ReviewWrite, UserInfo, UserPage} from '../components'
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 
 
@@ -12,6 +12,8 @@ const Main = () => <>
                     <Route path="/signup" component={SignUp}/>
                     <Route path="/review" component={Review}/>
                     <Route path="/reviewwrite" component={ReviewWrite}/>
+                    <Route path="/userinfo" component={UserInfo}/>
+                    <Route path="/userpage" component={UserPage}/>
                     {/* <Redirect from={"/history"} to ={"/about/history"}/>
                     <Redirect from={"/services"} to ={"/about/services"}/>
                     <Redirect from={"/location"} to ={"/about/location"}/>
