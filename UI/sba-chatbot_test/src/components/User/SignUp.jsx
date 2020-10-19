@@ -3,8 +3,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -12,24 +10,27 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import DirectionsIcon from '@material-ui/icons/Directions';
-import SettingsIcon from '@material-ui/icons/Settings';
-import Icon from '@material-ui/core/Icon';
 import GpsFixedIcon from '@material-ui/icons/GpsFixed';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-// https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/sign-up
 
+const Copyright = () => {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+        </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const useStyles = makeStyles((theme) => ({
+  location: {
+    margin: theme.spacing(1, 0, 2),
+  },
   paper: {
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -44,12 +45,13 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(1, 0, 2),
-    height:45
+    height: 45
   },
   root: {
     padding: '2px 4px',
+    display: 'flex',
     alignItems: 'center',
-    
+    width: 400,
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -62,22 +64,21 @@ const useStyles = makeStyles((theme) => ({
     height: 28,
     margin: 4,
   },
-  location :{
-    margin: theme.spacing(1, 0, 2),
-  },
-  width:{
-    // width:"50%"
-  },
 }));
 
 
-
-const UserInfo = () => {
+const Signup = () => {
   const classes = useStyles();
   return <>
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          회원가입
+        </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -110,7 +111,7 @@ const UserInfo = () => {
                 required
                 fullWidth
                 name="password"
-                label="현재 비밀번호"
+                label="비밀번호"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -122,25 +123,12 @@ const UserInfo = () => {
                 required
                 fullWidth
                 name="password"
-                label="새로운 비밀번호"
+                label="비밀번호 확인"
                 type="password"
                 id="password"
                 autoComplete="current-password"
               />
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="새로운 비밀번호 확인"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-            </Grid>
-
             <Grid item xs={12}>
               <Typography variant="h6" align="center">
                 지역 설정
@@ -168,6 +156,9 @@ const UserInfo = () => {
             </Grid>
 
           </Grid>
+
+
+
           <Button
             type="submit"
             fullWidth
@@ -175,12 +166,22 @@ const UserInfo = () => {
             color="primary"
             className={classes.submit}
           >
-            수정 완료
+            회원가입 온료
           </Button>
-
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Link href="/signin" variant="body2">
+                이미 회원이신가요?
+              </Link>
+            </Grid>
+          </Grid>
         </form>
       </div>
+      <Box mt={5}>
+        <Copyright />
+      </Box>
+    </Container>
   </>
 }
 
-export default UserInfo
+export default Signup

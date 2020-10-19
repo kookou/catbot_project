@@ -4,7 +4,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Header from '../Header';
-import FeaturedPostReview from './ShopInfo';
 import ReviewWriteSub from './ReviewWriteSub';
 import Footer from '../Footer';
 
@@ -30,19 +29,11 @@ const sections = [
   { title: 'Travel', url: '#' },
 ];
 
-const featuredPosts = [
+const reviewshopinfo =[
   {
-    image: 'https://source.unsplash.com/random',
-    title: '네네치킨',
-    date: '최소 주문 금액 : 14,000',
-    description:
-      '결제 신용카드, 현금',
-    time:
-      '배달 소요 시간 75~90분',
-    imageText: '네네 메인',
-  },
 
-];
+  },
+]
 
  const Review = () => 
 
@@ -51,7 +42,6 @@ const featuredPosts = [
       <Container maxWidth="lg">
         <Header title="Blog" sections={sections} />
         <main>
-
           <Grid container spacing={5} className={useStyles.mainGrid}>
             <ReviewWriteSub/>
           </Grid>

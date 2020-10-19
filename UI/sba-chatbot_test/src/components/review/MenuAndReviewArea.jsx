@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import ReviewDescription from './ReviewDescription';
-import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -93,7 +91,7 @@ function LinkTab(props) {
   );
 }
 
-export default function MenuAndReviewArea(props) {
+const MenuAndReviewArea = (props) => {
   const classes = useStyles();
   const { archives, description, social, title } = props;
   const [value, setValue] = React.useState(0);
@@ -101,7 +99,6 @@ export default function MenuAndReviewArea(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
 
   return (
     <Grid item xs={12} md={12}>
@@ -138,3 +135,5 @@ MenuAndReviewArea.propTypes = {
   social: PropTypes.array,
   title: PropTypes.string,
 };
+
+export default MenuAndReviewArea

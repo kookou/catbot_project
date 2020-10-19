@@ -22,6 +22,12 @@ const tileData = [
       author: 'author',
       featured: true,
     },
+    {
+      img: 'https://source.unsplash.com/random',
+      title:'하',
+      author: 'author',
+      featured: true,
+    },
 ]
 
 const useStyles = makeStyles((theme) => ({

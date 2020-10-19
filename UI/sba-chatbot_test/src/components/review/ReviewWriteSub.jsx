@@ -74,19 +74,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
-const featuredPosts = [
-  {
-    image: 'https://source.unsplash.com/random',
-    title: 'ba**님',
-    date: '순살치킨 ＋ 순살치킨/1(순살 소스선택(후라이드),순살 소스선택(간장),기본음료선택(콜라사이즈업),추가선택(무추가))',
-    description:
-      '으아아아아아 리엑트 너무 어려워 미친 화면단 어케 만들어야되냐 죽을거 같다 왜이렇게 왔다갔다해 복잡해 죽겠네 정신 없어 야ㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑ발 으아아아아아아아아아',
-    imageText: '네네 메인',
-  },
-];
-
-export default function ReviewWriteSub(props) {
+const ReviewWriteSub = (props) => {
   const classes = useStyles();
   const { archives, description, social, title } = props;
   const [value, setValue] = React.useState(0);
@@ -148,25 +136,7 @@ export default function ReviewWriteSub(props) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid container alignItems="center" justify="flex-end">
-          <Grid>
-            <input
-              accept='image/jpg,impge/png,image/jpeg,image/gif'
-              name='profile_img'
-              // onChange={this.handleFileOnChange}
-              className={classes.input}
-              id="contained-button-file"
-              multiple
-              type="file"
-            />
-            <label htmlFor="contained-button-file">
-              <ReviewImageUpload/>
-              <Button className={classes.button} variant="contained" color="primary" component="span" alignItems="center">
-                사진 등록
-              </Button>
-            </label>
-          </Grid>
-        </Grid>
+          <ReviewImageUpload/>
 
         <Grid container>
           <form className={classes.root} noValidate autoComplete="off">
@@ -199,3 +169,5 @@ ReviewWriteSub.propTypes = {
   social: PropTypes.array,
   title: PropTypes.string,
 };
+
+export default ReviewWriteSub

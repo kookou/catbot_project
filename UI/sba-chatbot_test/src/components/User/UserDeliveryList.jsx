@@ -1,24 +1,17 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Avatar from '@material-ui/core/Avatar';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Button from '@material-ui/core/Button';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import Pagination from '@material-ui/lab/Pagination';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        
     },
 
     paper: {
@@ -61,7 +54,6 @@ const UserDeliveryList = (props) => {
 
     return (
         <div className={classes.paper}>
-
             <Grid container item xs={12}>
                 <List className={classes.root}>
                     <ListItem alignItems="flex-start">
@@ -83,7 +75,7 @@ const UserDeliveryList = (props) => {
                             }
                         />
                         <ListItemSecondaryAction>
-                            <Button variant="outlined" color="primary" href="#outlined-buttons" >
+                            <Button variant="outlined" color="primary" href="/reviewwrite" >
                                 리뷰쓰기
                             </Button>
                         </ListItemSecondaryAction>

@@ -8,7 +8,6 @@ import Box from '@material-ui/core/Box';
 import UserInfo from './UserInfo'
 import { Grid } from '@material-ui/core';
 import UserDeliveryList from './UserDeliveryList'
-import UserTest from './UserTest'
 import Pagination from '@material-ui/lab/Pagination';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Avatar from '@material-ui/core/Avatar';
@@ -79,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
         display: 'flex',
-        height: 1000,
+        height: 800,
         marginTop: theme.spacing(3),
 
     },
@@ -114,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Usernav() {
+const Usernav = () => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
@@ -164,7 +163,7 @@ export default function Usernav() {
                     {review.map((post) => (
                         <UserDeliveryList key={post.shop} post={post} />
                     ))}
-                    <Grid justify="center">
+                    <Grid item justify="center" alignItems="flex-end">
                         <Pagination count={10} color="secondary" className={classes.pagi} />
                     </Grid>
                 </Grid>
@@ -178,3 +177,5 @@ export default function Usernav() {
         </div>
     );
 }
+
+export default Usernav
