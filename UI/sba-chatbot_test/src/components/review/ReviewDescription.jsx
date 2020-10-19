@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 import Rating from '@material-ui/lab/Rating';
+import Divider from '@material-ui/core/Divider';
 
 
 const useStyles = makeStyles({
@@ -75,7 +76,9 @@ export default function ReviewDescription(props) {
           </div>
         </Grid>
       </Grid>
+      <Divider variant="middle" />
     </Grid>
+
     
   );
 }

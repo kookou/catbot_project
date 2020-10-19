@@ -9,6 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 import Rating from '@material-ui/lab/Rating';
+import { PlayCircleFilledWhite } from '@material-ui/icons';
 
 
 const useStyles = makeStyles({
@@ -19,8 +20,8 @@ const useStyles = makeStyles({
     flex: 1,
   },
   cardMedia: {
-    width: 300,
-    height: 300,
+    width: 200,
+    height: 200,
   },
   shopMain : {
     marginBottom : 50,
@@ -32,6 +33,9 @@ const useStyles = makeStyles({
     '& > * + *': {
       
     },
+  },
+  background:{
+    backgroundColor : '#ffffff',
   },
   
 });

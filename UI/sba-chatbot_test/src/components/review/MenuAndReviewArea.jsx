@@ -119,7 +119,7 @@ export default function MenuAndReviewArea(props) {
               <ReviewDescription key={post.title} post={post} />
             ))}
           </Grid>
-          <Divider variant="middle" />
+          
           <Grid container spacing={4}>
             {reviewdescription2.map((post) => (
               <ReviewDescription key={post.title} post={post} />

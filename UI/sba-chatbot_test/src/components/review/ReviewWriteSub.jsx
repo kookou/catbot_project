@@ -17,7 +17,6 @@ import ReviewImageUpload from './ReviewImageUpload';
 import TextField from '@material-ui/core/TextField';
 import Rating from '@material-ui/lab/Rating';
 import Divider from '@material-ui/core/Divider';
-// import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,8 +59,21 @@ const useStyles = makeStyles((theme) => ({
     },
     marginRight: theme.spacing(1),
   },
+  margin: {
+    marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(5),
+  },
+  marginzero: {
+    margin: theme.spacing(0),
+  },
+  marginmenu: {
+    marginTop: theme.spacing(0),
+    marginBottom: theme.spacing(5),
+  },
 
 }));
+
+
 
 const featuredPosts = [
   {
@@ -79,103 +91,103 @@ export default function ReviewWriteSub(props) {
   const { archives, description, social, title } = props;
   const [value, setValue] = React.useState(0);
 
-
-
   return (
     <Grid item xs={12} md={12}>
 
       <div className={classes.root}>
-      <Grid container justify="center" item xs={12} md={12}>
-        <Typography variant="h4">
-          네네치킨
+        <Grid container justify="center" item xs={12} md={12} className={classes.margin}>
+          <Typography variant="h4">
+            네네치킨
           </Typography>
         </Grid>
-      <Grid container justify="center" item xs={12} md={12}>
-        <Typography color="textSecondary" variant="body2">
-          순살치킨 ＋ 순살치킨/1(순살 소스선택(후라이드),순살 소스선택(간장),기본음료선택(콜라사이즈업),추가선택(무추가))
+        <Grid container justify="center" item xs={12} md={12} className={classes.marginmenu}>
+          <Typography color="textSecondary" variant="body2">
+            순살치킨 ＋ 순살치킨/1(순살 소스선택(후라이드),순살 소스선택(간장),기본음료선택(콜라사이즈업),추가선택(무추가))
           </Typography>
-      </Grid>
-      <Divider variant="middle" />
-      <Grid container justify="center" item xs={12} md={12}>
-        <Typography color="textSecondary" variant="body2">
-          이 음식점에 대한 상세한 평가를 해주세요.
+        </Grid>
+        <Divider variant="middle" className={classes.marginzero} />
+        <Grid container justify="center" item xs={12} md={12} className={classes.margin}>
+          <Typography color="textSecondary" variant="h6">
+            이 음식점에 대한 상세한 평가를 해주세요.
           </Typography>
-      </Grid>
-      <Divider variant="middle" />
-      <Grid container justify="center" item xs={12} md={12}>
-        <Grid container item xs={4} md={2} alignItems="center" justify="center">
-          <Grid container>
-            <Grid item xs>
-              <Typography gutterBottom variant="h6">
-                맛
+        </Grid>
+        <Grid container justify="center" item xs={12} md={12} className={classes.margin}>
+          <Grid container item xs={4} md={2} alignItems="center" justify="center">
+            <Grid container>
+              <Grid item xs>
+                <Typography gutterBottom variant="h6">
+                  맛
               </Typography>
 
+              </Grid>
+              <Grid item>
+                <Rating name="teste" defaultValue={2.5} precision={0.5} size="large" />
+              </Grid>
             </Grid>
-            <Grid item>
-              <Rating name="teste" defaultValue={2.5} precision={0.5} size="large" />
-            </Grid>
-          </Grid>
 
-          <Grid container >
-            <Grid item xs >
-              <Typography gutterBottom variant="h6">
-                양
+            <Grid container >
+              <Grid item xs >
+                <Typography gutterBottom variant="h6">
+                  양
               </Typography>
+              </Grid>
+              <Grid item>
+                <Rating name="yarng" defaultValue={2.5} precision={0.5} size="large" />
+              </Grid>
             </Grid>
-            <Grid item>
-              <Rating name="yarng" defaultValue={2.5} precision={0.5} size="large" />
-            </Grid>
-          </Grid>
 
-          <Grid container >
-            <Grid item xs>
-              <Typography gutterBottom variant="h6">
-                배달
+            <Grid container >
+              <Grid item xs>
+                <Typography gutterBottom variant="h6">
+                  배달
               </Typography>
-            </Grid>
-            <Grid item>
-              <Rating name="delivery" defaultValue={2.5} precision={0.5} size="large" />
+              </Grid>
+              <Grid item>
+                <Rating name="delivery" defaultValue={2.5} precision={0.5} size="large" />
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
-      <Grid container alignItems="center">
-        <Grid>
-          <input
-            accept="image/*"
-            className={classes.input}
-            id="contained-button-file"
-            multiple
-            type="file"
-          />
-          <label htmlFor="contained-button-file">
-            <Button className={classes.button} variant="contained" color="primary" component="span" alignItems="center">
-              Upload
+        <Grid container alignItems="center" justify="flex-end">
+          <Grid>
+            <input
+              accept='image/jpg,impge/png,image/jpeg,image/gif'
+              name='profile_img'
+              // onChange={this.handleFileOnChange}
+              className={classes.input}
+              id="contained-button-file"
+              multiple
+              type="file"
+            />
+            <label htmlFor="contained-button-file">
+              <ReviewImageUpload/>
+              <Button className={classes.button} variant="contained" color="primary" component="span" alignItems="center">
+                사진 등록
               </Button>
-          </label>
+            </label>
+          </Grid>
         </Grid>
-      </Grid>
 
-      <Grid container>
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField className={classes.textfield}
-            id="outlined-multiline-static"
-            fullWidth
-            multiline
-            rows={20}
-            defaultValue="리뷰를 작성해 주세요"
-            variant="outlined"
-          />
-        </form>
-      </Grid>
-      <Grid className={classes.button}>
-        <Button className={classes.smallbutton} variant="contained" color="primary" disableElevation>
-          확인
-            </Button>
-        <Button variant="contained" color="primary" disableElevation>
-          취소
-            </Button>
-      </Grid>
+        <Grid container>
+          <form className={classes.root} noValidate autoComplete="off">
+            <TextField className={classes.textfield}
+              id="outlined-multiline-static"
+              fullWidth
+              multiline
+              rows={20}
+              defaultValue="리뷰를 작성해 주세요"
+              variant="outlined"
+            />
+          </form>
+        </Grid>
+        <Grid container className={classes.button} justify="flex-end">
+          <Button className={classes.smallbutton} variant="contained" color="primary" disableElevation>
+            등록 완료
+          </Button>
+          <Button variant="contained" color="primary" disableElevation>
+            등록 취소
+          </Button>
+        </Grid>
       </div>
     </Grid >
   );
