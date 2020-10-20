@@ -5,7 +5,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
-import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import {Divider, InputBase } from '@material-ui/core';
 
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Header(props) {
+const Header = (props) => {
   const classes = useStyles();
   const { sections, title } = props;
 
@@ -60,7 +59,7 @@ export default function Header(props) {
         </IconButton>
         </div>
         <Button variant="outlined" size="small">
-          Sign up
+          로그인
         </Button>
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
@@ -85,3 +84,6 @@ Header.propTypes = {
   sections: PropTypes.array,
   title: PropTypes.string,
 };
+
+
+export default Header

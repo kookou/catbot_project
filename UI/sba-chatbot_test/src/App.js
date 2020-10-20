@@ -2,9 +2,9 @@ import React from 'react'
 import { Main } from './pages'
 
 const App = () => <>
-    <div style={{ width: "1000px", margin: "0 auto" }}>
+    {/* <div style={{ width: "1000px", margin: "0 auto" }}> */}
         <Main />
-    </div>
+    {/* </div> */}
 </>
 
 export default App

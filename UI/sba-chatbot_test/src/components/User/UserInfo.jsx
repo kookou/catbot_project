@@ -70,7 +70,9 @@ const UserInfo = () => {
                 fullWidth
                 id="nick"
                 label="닉네임"
+                size="small"
                 autoFocus
+                
               />
             </Grid>
 
@@ -83,6 +85,7 @@ const UserInfo = () => {
                 label="이메일 주소"
                 name="email"
                 autoComplete="email"
+                size="small"
               />
             </Grid>
             <Grid item xs={12}>
@@ -94,6 +97,7 @@ const UserInfo = () => {
                 label="현재 비밀번호"
                 type="password"
                 id="password"
+                size="small"
                 autoComplete="current-password"
               />
             </Grid>
@@ -106,6 +110,7 @@ const UserInfo = () => {
                 label="새로운 비밀번호"
                 type="password"
                 id="password"
+                size="small"
                 autoComplete="current-password"
               />
             </Grid>
@@ -118,6 +123,7 @@ const UserInfo = () => {
                 label="새로운 비밀번호 확인"
                 type="password"
                 id="password"
+                size="small"
                 autoComplete="current-password"
               />
             </Grid>
@@ -134,6 +140,7 @@ const UserInfo = () => {
                 label="동명(읍,면)으로 검색 (ex.서초동)"
                 type="password"
                 id="password"
+                size="small"
                 autoComplete="current-password"
               />
               <Button

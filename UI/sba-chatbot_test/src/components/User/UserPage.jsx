@@ -6,12 +6,14 @@ import Container from '@material-ui/core/Container';
 import Header from '../Header';
 import Footer from '../Footer';
 import Usernav from './Usernav';
+import Navigation from '../Navigation';
 
 
 
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
-        marginTop: theme.spacing(3),
+        marginTop: theme.spacing(0),
+        backgroundColor: theme.palette.background.paper,
     },
 }));
 
@@ -31,19 +33,22 @@ const sections = [
 
 
 
-const UserPage = () =>
+const UserPage = () => {
+const classes = useStyles();
 
+  return(
     <React.Fragment>
         <CssBaseline />
-        <Container maxWidth="lg">
-            <Header title="Blog" sections={sections} />
-            <main>
-                <Grid container className={useStyles.mainGrid} justify="center">
-                    <Usernav/>
-                </Grid>
-            </main>
-        </Container>
+        {/* <Container maxWidth="md"> */}
+            {/* <Header title="Blog" sections={sections} /> */}
+            <Navigation/>
+        {/* </Container> */}
+        <Grid container justify="center"className={classes.mainGrid}>
+            <Usernav/>
+        </Grid>
+
         <Footer title="Footer" description="Something here to give the footer a purpose!" />
     </React.Fragment>
-
+  )
+}
 export default UserPage

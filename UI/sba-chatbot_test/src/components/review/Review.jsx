@@ -8,6 +8,7 @@ import ShopInfo from './ShopInfo';
 import MenuAndReviewArea from './MenuAndReviewArea';
 import Footer from '../Footer';
 
+
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
@@ -49,10 +50,10 @@ const Review = () =>
 
 <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
+      <Container maxWidth="md">
         <Header title="Blog" sections={sections} />
-        <main>
-          <Grid container spacing={4}>
+        
+          <Grid container >
             {shopInfo.map((post) => (
               <ShopInfo key={post.title} post={post} />
             ))}
@@ -61,9 +62,9 @@ const Review = () =>
           <Grid container spacing={5} className={useStyles.mainGrid}>
             <MenuAndReviewArea/>
           </Grid>
-        </main>
+          </Container>
       <Footer title="Footer" description="Something here to give the footer a purpose!" />
-      </Container>
+     
     </React.Fragment>
 
 export default Review

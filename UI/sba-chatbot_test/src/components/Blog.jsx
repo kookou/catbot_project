@@ -94,9 +94,9 @@ const Blog = () =>
 
 <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
+      <Container maxWidth="md">
         <Header title="Blog" sections={sections} />
-        <main>
+        </Container>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
             {featuredPosts.map((post) => (
@@ -112,8 +112,7 @@ const Blog = () =>
               social={sidebar.social}
             />
           </Grid>
-        </main>
-      </Container>
+ 
       <Footer title="Footer" description="Something here to give the footer a purpose!" />
     </React.Fragment>
 

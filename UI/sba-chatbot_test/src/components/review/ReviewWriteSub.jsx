@@ -9,8 +9,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import FeaturedPostReviewWrite from './FeaturedPostReviewWrite';
-import FeaturedPostMenu_sum from './FeaturedPostMenu_sum';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ReviewImageUpload from './ReviewImageUpload';

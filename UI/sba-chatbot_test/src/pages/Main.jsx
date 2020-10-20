@@ -1,17 +1,16 @@
 import React from 'react'
-import {SignIn, Review, SignUp, Blog, ReviewWrite, UserInfo, UserPage} from '../components'
+import {SignIn, Review, SignUp, Blog, ReviewWritePage, UserInfo, UserPage} from '../components'
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 
 
 const Main = () => <>
         <BrowserRouter>
-            <div classname="main">
                 <Switch>
                     <Route exact path="/" component={Blog}/>
                     <Route path="/signin" component={SignIn}/>
                     <Route path="/signup" component={SignUp}/>
                     <Route path="/review" component={Review}/>
-                    <Route path="/reviewwrite" component={ReviewWrite}/>
+                    <Route path="/reviewwrite" component={ReviewWritePage}/>
                     <Route path="/userinfo" component={UserInfo}/>
                     <Route path="/userpage" component={UserPage}/>
                     {/* <Redirect from={"/history"} to ={"/about/history"}/>
@@ -22,8 +21,6 @@ const Main = () => <>
                     <Route path="/products" component={Products}/>
                     <Route component={Error}/> */}
                 </Switch>
-                
-            </div>
         </BrowserRouter>
     </>
 

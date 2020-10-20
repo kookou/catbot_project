@@ -41,11 +41,9 @@ const reviewshopinfo =[
       <CssBaseline />
       <Container maxWidth="lg">
         <Header title="Blog" sections={sections} />
-        <main>
           <Grid container spacing={5} className={useStyles.mainGrid}>
             <ReviewWriteSub/>
           </Grid>
-        </main>
       </Container>
       <Footer title="Footer" description="Something here to give the footer a purpose!" />
     </React.Fragment>
