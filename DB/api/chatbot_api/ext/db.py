@@ -6,7 +6,7 @@ Base = declarative_base()  # SqlAlchemy에서 사용
 config = {
     'user': 'mychatbot',
     'password': 'mychatbot',
-    'host': 'mychatbot.cghkqk2zeb0q.ap-northeast-2.rds.amazonaws.com',
+    'host': 'mychatbot.chkq44slodcf.ap-northeast-2.rds.amazonaws.com',
     'port': '3306',
     'database': 'mychatbot'
 }
