@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import Header from '../Header';
 import Footer from '../Footer';
 import Usernav from './Usernav';
+import NewHeader from '../NewHeader';
 import Navigation from '../Navigation';
 
 
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-    { title: '로그인', url: './signin' },
+    { title: '메인', url: '/main' },
     { title: '리뷰보기', url: '/review' },
     { title: '리뷰쓰기', url: '/reviewwrite' },
     { title: '마이페이지', url: '/userpage' },
@@ -39,10 +40,10 @@ const classes = useStyles();
   return(
     <React.Fragment>
         <CssBaseline />
-        {/* <Container maxWidth="md"> */}
-            {/* <Header title="Blog" sections={sections} /> */}
-            <Navigation/>
-        {/* </Container> */}
+        <Header title="Blog" sections={sections} />
+            <NewHeader/>
+           
+     
         <Grid container justify="center"className={classes.mainGrid}>
             <Usernav/>
         </Grid>

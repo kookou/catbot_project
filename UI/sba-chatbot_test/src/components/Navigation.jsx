@@ -116,34 +116,6 @@ const Navigation = () => {
     return (
         <React.Fragment>
             <CssBaseline />
-            <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
-            <Grid container justify="center">
-                <Toolbar className={classes.toolbar}>
-                    <Typography href="/" variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                        Chatbot Team
-                    </Typography>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon color="primary" />
-                        </div>
-                        <InputBase
-                            placeholder="검색"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </div>
-                    <Button href="/signin" color="primary" variant="outlined" className={classes.link}>
-                        로그인
-                    </Button>
-                    <Button href="/signup" color="primary" variant="outlined" className={classes.link}>
-                        회원가입
-                    </Button>
-                </Toolbar>
-            </Grid>
-            </AppBar>
                 <Grid container item md={12} justify="center" className={classes.appBar}>
                     <BottomNavigation
                         value={value}
@@ -153,7 +125,7 @@ const Navigation = () => {
                         showLabels
                         className={classes.root}
                         >
-                            <BottomNavigationAction label="전체보기" href="#"/>
+                            <BottomNavigationAction label="전체보기" href="./Blog"/>
                             <BottomNavigationAction label="프렌차이즈"/>
                             <BottomNavigationAction label="치킨"/>
                             <BottomNavigationAction label="피자/양식"/>

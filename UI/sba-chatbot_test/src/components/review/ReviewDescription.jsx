@@ -49,7 +49,7 @@ function HalfRating() {
 }
 
 
-export default function ReviewDescription(props) {
+const ReviewDescription = (props) => {
   const classes = useStyles();
   const { post } = props;
 
@@ -86,3 +86,5 @@ export default function ReviewDescription(props) {
 ReviewDescription.propTypes = {
   post: PropTypes.object,
 };
+
+export default ReviewDescription

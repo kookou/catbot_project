@@ -17,12 +17,13 @@ const useStyles = makeStyles({
     flex: 1,
   },
   cardMedia: {
-    width: 200,
-    height: 200,
+    width: 250 ,
+    height: 250,
+    marginRight :40,
   },
   shopMain : {
-    marginBottom : 50,
-    marginTop : 50,
+    marginTop : 30,
+    marginBottom : 30,
   },
   root: {
     display: 'flex',
@@ -33,15 +34,21 @@ const useStyles = makeStyles({
   background:{
     backgroundColor : '#ffffff',
   },
-  
+  marginbottom:{
+    marginBottom : 10,
+  },
+  rating:{
+    marginLeft : -5,
+    // marginbottom : 5,
+  },
 });
 
 function HalfRating() {
   const classes = useStyles();
   const [value, setValue] = React.useState(2);
   return (
-    <div className={classes.root}>
-      <Rating name="read-only" value={value} readOnly />
+    <div className={classes.rating}>
+      <Rating name="halfrationg" defaultValue={4.5} precision={0.5} size="large" readOnly />
     </div>
   );
 }
@@ -52,32 +59,27 @@ const ShopInfo = (props) => {
   const { post } = props;
 
   return (
-    <Grid item xs={12} md={12}>
       <Grid className={classes.shopMain}>
         <Grid className={classes.card}>
           <Hidden xsDown>
-            <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />
+            <CardMedia className={classes.cardMedia} image={post.shop_img}/>
           </Hidden>
           <div className={classes.cardDetails}>
             <CardContent>
-              <Typography component="h2" variant="h5">
-                {post.title}
+              <Typography component="h2" variant="h5" className={classes.marginbottom}>
+                {post.shop_name}
               </Typography>
               <HalfRating/>
-              <Typography variant="subtitle1" color="textSecondary">
-                {post.date}
+              <Typography variant="h6" color="textSecondary" className={classes.marginbottom}>
+                {post.shop_addr}
               </Typography>
-              <Typography variant="subtitle1" paragraph>
-                {post.description}
-              </Typography>
-              <Typography variant="subtitle1" color="primary">
-                {post.time}
+              <Typography variant="subtitle1"  paragraph>
+                영업시간 : {post.opentime}
               </Typography>
             </CardContent>
           </div>
         </Grid>
       </Grid>
-    </Grid>
   );
 }
 

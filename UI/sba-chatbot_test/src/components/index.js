@@ -6,4 +6,5 @@ export {default as Review} from './review/Review'
 export {default as ReviewWritePage} from './review/ReviewWritePage'
 export {default as UserInfo} from './User/UserInfo'
 export {default as UserPage} from './User/UserPage'
+export {default as ShopMain} from './Shop/ShopMain'
 

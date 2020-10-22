@@ -7,6 +7,8 @@ import Header from '../Header';
 import ShopInfo from './ShopInfo';
 import MenuAndReviewArea from './MenuAndReviewArea';
 import Footer from '../Footer';
+import NewHeader from '../NewHeader';
+import Navigation from '../Navigation';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -16,11 +18,18 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  maxwidth:{
+    maxWidth: 912,
+  },
+  bg:{
+    backgroundColor: theme.palette.background.paper,
+  },
+  
   
 }));
 
 const sections = [
-  { title: '로그인', url: './signin' },
+  { title: '메인', url: '/main' },
   { title: '리뷰보기', url: '/review' },
   { title: '리뷰쓰기', url: '/reviewwrite' },
   { title: '마이페이지', url: '/userpage' },
@@ -33,16 +42,14 @@ const sections = [
 
 const shopInfo = [
   {
-    image: 'https://source.unsplash.com/random',
-    title: '네네치킨',
-    date: '최소 주문 금액 : 14,000',
-    description:
+    shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
+    shop_name: '헐피자',
+    shop_addr: '서울 성동구 용답동 81-11 1층',
+    shop_rev_avg:
       '결제 신용카드, 현금',
-    time:
-      '배달 소요 시간 75~90분',
-    imageText: '네네 메인',
+    opentime:
+      '12:00 - 00:30',
   },
-
 ];
 
 
@@ -50,21 +57,19 @@ const Review = () =>
 
 <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="md">
         <Header title="Blog" sections={sections} />
-        
-          <Grid container >
+        <NewHeader/>
+        <Navigation/>
+          <Grid container justify="center" >
             {shopInfo.map((post) => (
               <ShopInfo key={post.title} post={post} />
             ))}
           </Grid>
 
-          <Grid container spacing={5} className={useStyles.mainGrid}>
-            <MenuAndReviewArea/>
-          </Grid>
-          </Container>
+            <Grid container justify="center" spacing={5} className={useStyles.mainGrid}>
+              <MenuAndReviewArea/>
+            </Grid>
       <Footer title="Footer" description="Something here to give the footer a purpose!" />
-     
     </React.Fragment>
 
 export default Review

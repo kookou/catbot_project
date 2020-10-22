@@ -8,11 +8,14 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import ReviewDescription from './ReviewDescription';
+import ShopMenuInfo from './ShopMenuInfo';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginTop: theme.spacing(3),
     backgroundColor: theme.palette.background.paper,
+    maxWidth: 1000,
   },
 
 }));
@@ -43,6 +46,27 @@ const reviewdescription = [
     imageText: '네네 메인',
   },
 ];
+
+const shopmenu = [
+  {
+    food_name :'오리지널세트1（오리지널피자L 1판＋치즈오븐스파게티＋콜라 1.25L）',
+    food_price:'23,000',
+    food_img:'https://images.deliveryhero.io/image/yogiyo/STOCK_IMG/%EA%B8%B0%ED%83%80%EC%99%B8%EA%B5%AD%EC%9D%8C%EC%8B%9D/%EC%9A%94%EB%A6%AC/%EC%8A%A4%ED%83%81_20191002_DHK%EC%B4%AC%EC%98%81_%ED%80%98%EC%82%AC%EB%94%94%EC%95%84_Side02_1080x640.jpg?width=384&height=273&quality=100',
+
+  },
+    {
+    food_name :'오리지널세트1',
+    food_price:'23,000',
+    food_img:'https://images.deliveryhero.io/image/yogiyo/STOCK_IMG/%EA%B8%B0%ED%83%80%EC%99%B8%EA%B5%AD%EC%9D%8C%EC%8B%9D/%EC%9A%94%EB%A6%AC/%EC%8A%A4%ED%83%81_20191002_DHK%EC%B4%AC%EC%98%81_%ED%80%98%EC%82%AC%EB%94%94%EC%95%84_Side02_1080x640.jpg?width=384&height=273&quality=100',
+
+  },
+  {
+    food_name :'오리지널세트1（오리지널피자L 1판＋치즈오븐스파게티＋콜라 1.25L）',
+    food_price:'23,000',
+    food_img:'https://images.deliveryhero.io/image/yogiyo/STOCK_IMG/%EA%B8%B0%ED%83%80%EC%99%B8%EA%B5%AD%EC%9D%8C%EC%8B%9D/%EC%9A%94%EB%A6%AC/%EC%8A%A4%ED%83%81_20191002_DHK%EC%B4%AC%EC%98%81_%ED%80%98%EC%82%AC%EB%94%94%EC%95%84_Side02_1080x640.jpg?width=384&height=273&quality=100',
+
+  },
+]
 
 
 
@@ -101,8 +125,7 @@ const MenuAndReviewArea = (props) => {
   };
 
   return (
-    <Grid item xs={12} md={12}>
-       <div className={classes.root}>
+    <div className={classes.root}>
       <AppBar position="static">
         <Tabs
           variant="fullWidth"
@@ -114,18 +137,21 @@ const MenuAndReviewArea = (props) => {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-         
+        <Grid container spacing={4} justify="center">
+          {shopmenu.map((post) => (
+            <ShopMenuInfo key={post.food_name} post={post} />
+          ))}
+        </Grid>
       </TabPanel>
       <TabPanel value={value} index={1}>
-          <Grid container spacing={4}>
-            {reviewdescription.map((post) => (
-              <ReviewDescription key={post.title} post={post} />
-            ))}
-          </Grid>
+        <Grid container spacing={4} justify="center">
+          {reviewdescription.map((post) => (
+            <ReviewDescription key={post.title} post={post} />
+          ))}
+        </Grid>
 
       </TabPanel>
     </div>
-    </Grid>
   );
 }
 

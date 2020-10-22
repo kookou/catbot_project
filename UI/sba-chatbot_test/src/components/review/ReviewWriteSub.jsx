@@ -104,7 +104,6 @@ const ReviewWriteSub = (props) => {
                 <Typography gutterBottom variant="h6">
                   맛
               </Typography>
-
               </Grid>
               <Grid item>
                 <Rating name="teste" defaultValue={2.5} precision={0.5} size="large" />

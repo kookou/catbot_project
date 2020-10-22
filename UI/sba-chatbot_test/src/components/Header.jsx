@@ -39,29 +39,7 @@ const Header = (props) => {
 
   return (
     <React.Fragment>
-      <Toolbar className={classes.toolbar}>
-        <Button variant="contrain" color="primary" >프로젝트</Button>
-        {/* <Typography
-          component="h2"
-          variant="h5"
-          color="inherit"
-          align="center"
-          noWrap
-          className={classes.toolbarTitle}
-        >
-          {title}
-        </Typography> */}
-        <div className={classes.align}>
-        <InputBase className={classes.inputBase}>
-        </InputBase>
-        <IconButton >
-          <SearchIcon />
-        </IconButton>
-        </div>
-        <Button variant="outlined" size="small">
-          로그인
-        </Button>
-      </Toolbar>
+ 
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (
           <Link
