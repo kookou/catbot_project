@@ -241,7 +241,7 @@ if __name__ == '__main__':
     # print("뭔데.")
     start = 0
     end = 1000
-    for i in range(35):
+    for i in range(43):
         print(f'{i} 번째')
         input_file_path = f'./data/json/review(seoul)/yogiyo_review({start}~{end}).json'
         try:
@@ -250,7 +250,8 @@ if __name__ == '__main__':
             pass
         start += 1000
         end += 1000
-    yogiyo.json_to_csv('./data/json/review(seoul)/yogiyo_review(0~1000).json')
+    # yogiyo.json_to_csv('./data/json/review(seoul)/yogiyo_review(0~1000).json')
+    print('뭔데')
 
     #---------------------------
     # csv 병합

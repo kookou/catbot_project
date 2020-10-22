@@ -16,7 +16,8 @@ pip install xlrd 주의!! anaconda install xlrd 하면 에러 발생
 TEST
 '''
 reviewcol = [
-        'shop_id','review_cmnt','taste_rate','quantity_rate','delivery_rate','review_time','userid','review_id','food_id','review_img']
+        'shop_id','review_cmnt','taste_rate','quantity_rate','delivery_rate','review_time','userid','review_id','food_id','review_img','owner_reply']
+
 @dataclass
 class FileReader:
     # def __init__(self, context, fname, train, test, id, label):
@@ -54,6 +55,8 @@ class FileReader:
         print(f'{self.fname} 저장완료')
 
 
+
+    
     
     def json_to_csv(self, json_data):
         with open(json_data, "r", encoding="UTF-8-sig", newline="") as input_file, \
@@ -70,23 +73,33 @@ class FileReader:
                         comment = comment.replace('\r', ' ')
                         comment = comment.replace('\n', ' ')
                         img = idx['review_images']
+                        
+                        owner = idx['owner_reply'] 
 
                         imsi = [item['id'], comment, idx['rating_taste'], idx['rating_quantity'], idx['rating_delivery'],
-                            idx['time'],idx['nickname'],idx['id'],idx['menu_summary']]
-                        
+                        idx['time'],idx['nickname'],idx['id'],idx['menu_summary']]
+
                         imglist =[]
 
                         for imgidx in img:
                             imglist.append(imgidx['thumb'])
                         imsi.append(imglist)
-                            
+
+                        if owner != None:
+                            ownercmnt = owner['comment']
+                            ownercmnt = ownercmnt.replace('\r', ' ')
+                            ownercmnt = ownercmnt.replace('\n', ' ')
+
+                            imsi.append(ownercmnt)
+                        
+                        # else :
+                        #     pass
+
                         result.append(imsi)
                             # print(imgidx['thumb'])
 
                 else : id = ''
 
-            # result = pd.DataFrame(result, columns=reviewcol)
-            # result.to_csv(mode='w', encoding='utf-8', index=False)
             csv_writer = csv.writer(output_file, delimiter=',')
 
             try:
