@@ -168,12 +168,12 @@ class YogiyoCrawler:
         reader.new_file()
         reader.json_to_csv_review(json_data)
 
-    def menu_csv(self,json_data,start,end):
+    def shop_csv(self,json_data,start,end):
         reader = self.reader
-        reader.context = os.path.join(baseurl, 'data/csv/review')
-        reader.fname = f'yogiyo_review({start}~{end}).csv'
+        reader.context = os.path.join(baseurl, 'data/csv/shop')
+        reader.fname = f'yogiyo_shop({start}~{end}).csv'
         reader.new_file()
-        reader.json_to_csv_menu(json_data)
+        reader.json_to_csv_shop(json_data)
 
 
 
@@ -258,7 +258,7 @@ if __name__ == '__main__':
         start += 1000
         end += 1000
     # yogiyo.json_to_csv('./data/json/review(seoul)/yogiyo_review(0~1000).json')
-    print('뭔데')
+    print('끝')
 
     #---------------------------
     # csv 병합

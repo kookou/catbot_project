@@ -16,8 +16,10 @@ pip install xlrd 주의!! anaconda install xlrd 하면 에러 발생
 TEST
 '''
 reviewcol = [
-        'shop_id','review_cmnt','taste_rate','quantity_rate','delivery_rate','review_time','userid','review_id','food_id','order_id','review_img','owner_reply']
-shopcol = []
+        'review_id','review_cmnt','taste_rate','quantity_rate','delivery_rate','review_time','userid','shop_id','food_id','order_id','review_img','owner_cmnt']
+shopcol = [
+    'shop_id','shop_name','shop_addr','shop_img','shop_lat','shop_lng','shop_rev_avg','shop_rev_amt','opentime','cat'
+]
 @dataclass
 class FileReader:
     # def __init__(self, context, fname, train, test, id, label):
@@ -113,57 +115,38 @@ class FileReader:
                 print('no data')
 
 
-    def json_to_csv_menu(self, json_data):
+    def json_to_csv_shop(self, json_data):
         with open(json_data, "r", encoding="UTF-8-sig", newline="") as input_file, \
                 open(self.new_file(), "w", encoding="UTF-8-sig", newline="") as output_file:
             input_data = json.load(input_file)
             result = []
 
             for item in input_data:
-                if item['id'] != '' :
-                    id = item['id']
-                    reviews = item['reviews']
-                    for idx in reviews:
-                        comment = idx['comment']
-                        comment = comment.replace('\r', ' ')
-                        comment = comment.replace('\n', ' ')
-                        img = idx['review_images']
+                if item['city'] == '서울':
+                    if item['id'] != '' :
+                        cat = item['categories']
+                        imsi = [item['id'], item['name'], item['address'], f'https://www.yogiyo.co.kr{item["logo_url"]}', item['lat'], item['lng'], item['review_avg'], item['review_count'], item['open_time_description']]
                         
-                        owner = idx['owner_reply'] 
+                        catlist =[]
 
-                        imsi = [item['id'], comment, idx['rating_taste'], idx['rating_quantity'], idx['rating_delivery'],
-                        idx['time'],idx['nickname'],idx['id'],idx['menu_summary']]
+                    for idx in cat:
+                        catlist.append(idx)
+                    imsi.append(catlist)
 
-                        imglist =[]
-
-                        for imgidx in img:
-                            imglist.append(imgidx['thumb'])
-                        imsi.append(imglist)
-
-                        if owner != None:
-                            ownercmnt = owner['comment']
-                            ownercmnt = ownercmnt.replace('\r', ' ')
-                            ownercmnt = ownercmnt.replace('\n', ' ')
-
-                            imsi.append(ownercmnt)
-                        
-                        # else :
-                        #     pass
-
-                        result.append(imsi)
-                            # print(imgidx['thumb'])
+                    result.append(imsi)
 
                 else : id = ''
 
             csv_writer = csv.writer(output_file, delimiter=',')
 
             try:
-                print("오니?1")
-                csv_writer.writerow(reviewcol)  # 컬럼 처리
-                print("오니?2")
+                print("시작")
+                csv_writer.writerow(shopcol)  # 컬럼 처리
+                    
                 for line in result:
                     csv_writer.writerow(line)
-  
+                print("끝")
+    
             except:
                 print('no data')
 
