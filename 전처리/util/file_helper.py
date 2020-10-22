@@ -16,8 +16,8 @@ pip install xlrd 주의!! anaconda install xlrd 하면 에러 발생
 TEST
 '''
 reviewcol = [
-        'shop_id','review_cmnt','taste_rate','quantity_rate','delivery_rate','review_time','userid','review_id','food_id','review_img','owner_reply']
-
+        'shop_id','review_cmnt','taste_rate','quantity_rate','delivery_rate','review_time','userid','review_id','food_id','order_id','review_img','owner_reply']
+shopcol = []
 @dataclass
 class FileReader:
     # def __init__(self, context, fname, train, test, id, label):
@@ -58,7 +58,62 @@ class FileReader:
 
     
     
-    def json_to_csv(self, json_data):
+    def json_to_csv_review(self, json_data):
+        with open(json_data, "r", encoding="UTF-8-sig", newline="") as input_file, \
+                open(self.new_file(), "w", encoding="UTF-8-sig", newline="") as output_file:
+            input_data = json.load(input_file)
+            result = []
+
+            for item in input_data:
+                if item['id'] != '' :
+                    id = item['id']
+                    reviews = item['reviews']
+                    for idx in reviews:
+                        comment = idx['comment']
+                        comment = comment.replace('\r', ' ')
+                        comment = comment.replace('\n', ' ')
+                        img = idx['review_images']
+                        
+                        owner = idx['owner_reply'] 
+
+                        imsi = [idx['id'], comment, idx['rating_taste'], idx['rating_quantity'], idx['rating_delivery'],
+                        idx['time'],idx['nickname'],id,idx['menu_summary'],idx['id']]
+
+                        imglist =[]
+
+                        for imgidx in img:
+                            imglist.append(imgidx['thumb'])
+                        imsi.append(imglist)
+
+                        if owner != None:
+                            ownercmnt = owner['comment']
+                            ownercmnt = ownercmnt.replace('\r', ' ')
+                            ownercmnt = ownercmnt.replace('\n', ' ')
+
+                            imsi.append(ownercmnt)
+                        
+                        # else :
+                        #     pass
+
+                        result.append(imsi)
+                            # print(imgidx['thumb'])
+
+                else : id = ''
+
+            csv_writer = csv.writer(output_file, delimiter=',')
+
+            try:
+                print("오니?1")
+                csv_writer.writerow(reviewcol)  # 컬럼 처리
+                print("오니?2")
+                for line in result:
+                    csv_writer.writerow(line)
+  
+            except:
+                print('no data')
+
+
+    def json_to_csv_menu(self, json_data):
         with open(json_data, "r", encoding="UTF-8-sig", newline="") as input_file, \
                 open(self.new_file(), "w", encoding="UTF-8-sig", newline="") as output_file:
             input_data = json.load(input_file)
@@ -112,15 +167,7 @@ class FileReader:
             except:
                 print('no data')
 
-        # outputname = f'{self.filename}.csv'
-        # result.to_csv(outputname, mode='w', encoding='utf-8', index=False)
-            # csv_writer = csv.writer(output_file)
-            # try:
-            #     csv_writer.writerow(input_data[0].keys())  # 컬럼 처리
-            #     for line in input_data:
-            #         csv_writer.writerow(line.values())
-            # except:
-            #     print('no data')
+
 
     def merge_csv(self, input_path, output_file, glob_keyword):
 

@@ -166,7 +166,14 @@ class YogiyoCrawler:
         reader.context = os.path.join(baseurl, 'data/csv/review')
         reader.fname = f'yogiyo_review({start}~{end}).csv'
         reader.new_file()
-        reader.json_to_csv(json_data)
+        reader.json_to_csv_review(json_data)
+
+    def menu_csv(self,json_data,start,end):
+        reader = self.reader
+        reader.context = os.path.join(baseurl, 'data/csv/review')
+        reader.fname = f'yogiyo_review({start}~{end}).csv'
+        reader.new_file()
+        reader.json_to_csv_menu(json_data)
 
 
 
@@ -245,7 +252,7 @@ if __name__ == '__main__':
         print(f'{i} 번째')
         input_file_path = f'./data/json/review(seoul)/yogiyo_review({start}~{end}).json'
         try:
-            yogiyo.json_to_csv(input_file_path, start, end)
+            yogiyo.review_csv(input_file_path, start, end)
         except:
             pass
         start += 1000

@@ -149,7 +149,6 @@ class YogiyoCrawler:
 
     # 테스트 중
     def json_to_csv(self, json_data, start, end):
-        print(json_data + " : json데이터")
         reader = self.reader
         reader.context = os.path.join(baseurl, 'data/csv/review')
         reader.fname = f'yogiyo_review({start}~{end}).csv'
@@ -164,7 +163,6 @@ class YogiyoCrawler:
     
 
     def review_csv(self,json_data,start,end):
-        print(json_data + " : json 데이터")
         reader = self.reader
         reader.context = os.path.join(baseurl, 'data/csv/review')
         reader.fname = f'yogiyo_review({start}~{end}).csv'
