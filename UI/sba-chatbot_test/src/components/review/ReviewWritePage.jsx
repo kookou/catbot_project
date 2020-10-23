@@ -6,6 +6,8 @@ import Container from '@material-ui/core/Container';
 import Header from '../Header';
 import ReviewWriteSub from './ReviewWriteSub';
 import Footer from '../Footer';
+import NewHeader from '../NewHeader';
+import Navigation from '../Navigation';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -18,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-  { title: '로그인', url: './signin' },
+  { title: '메인', url: '/main' },
   { title: '리뷰보기', url: '/review' },
   { title: '리뷰쓰기', url: '/reviewwrite' },
   { title: '마이페이지', url: '/userpage' },
@@ -29,23 +31,19 @@ const sections = [
   { title: 'Travel', url: '#' },
 ];
 
-const reviewshopinfo =[
-  {
 
-  },
-]
 
- const Review = () => 
+ const ReviewWritePage = () => 
 
 <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
         <Header title="Blog" sections={sections} />
-          <Grid container spacing={5} className={useStyles.mainGrid}>
+        <NewHeader/>
+        <Navigation/>
+          <Grid container justify="center" spacing={5} className={useStyles.mainGrid}>
             <ReviewWriteSub/>
           </Grid>
-      </Container>
       <Footer title="Footer" description="Something here to give the footer a purpose!" />
     </React.Fragment>
 
-export default Review
+export default ReviewWritePage

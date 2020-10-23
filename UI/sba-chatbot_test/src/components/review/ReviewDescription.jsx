@@ -11,6 +11,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 import Rating from '@material-ui/lab/Rating';
 import Divider from '@material-ui/core/Divider';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 
 
 const useStyles = makeStyles({
@@ -24,19 +26,21 @@ const useStyles = makeStyles({
     width: 150,
     height: 150,
   },
-  shopMain : {
-    marginBottom : 0,
-    marginTop : 0,
+  shopMain: {
+    marginBottom: 0,
+    marginTop: 0,
   },
   root: {
     display: 'flex',
     flexDirection: 'column',
     '& > * + *': {
-      
+
     },
   },
-  
+
 });
+
+
 
 function HalfRating() {
   const classes = useStyles();
@@ -60,17 +64,25 @@ const ReviewDescription = (props) => {
           <div className={classes.cardDetails}>
             <CardContent>
               <Typography component="h6" variant="h6">
-                {post.title}
+                {post.name}
               </Typography>
-              <HalfRating/>
+              <HalfRating />
               <Typography variant="subtitle1" color="textSecondary">
-                {post.date}
+                {post.food_name}
               </Typography>
               <Typography variant="subtitle1" paragraph>
-                {post.description}
+                {post.review_cmnt}
               </Typography>
               <Hidden xsDown>
-              <ReviewImage/>              
+               
+                {/* <GridList cellHeight={200} className={classes.gridList} cols={post.length}>
+                  {post.map((img) => (
+                    <GridListTile key={img.name} cols={img.cols || 1}>
+                      <img src={img.review_img} />
+                    </GridListTile>
+                  ))}
+                  </GridList> */}
+
               </Hidden>
             </CardContent>
           </div>
@@ -79,7 +91,7 @@ const ReviewDescription = (props) => {
       <Divider variant="middle" />
     </Grid>
 
-    
+
   );
 }
 

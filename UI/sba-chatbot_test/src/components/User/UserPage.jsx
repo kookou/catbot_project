@@ -42,8 +42,6 @@ const classes = useStyles();
         <CssBaseline />
         <Header title="Blog" sections={sections} />
             <NewHeader/>
-           
-     
         <Grid container justify="center"className={classes.mainGrid}>
             <Usernav/>
         </Grid>

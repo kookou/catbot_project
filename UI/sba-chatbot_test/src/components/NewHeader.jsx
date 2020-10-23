@@ -124,7 +124,7 @@ const NewHeader = () => {
             <Grid container justify="center">
                 <Toolbar className={classes.toolbar}>
                     <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                        <Link href="/" >
+                        <Link href="/main" >
                             메추리
                         </Link>
                     </Typography>

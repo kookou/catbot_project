@@ -19,7 +19,7 @@ import Divider from '@material-ui/core/Divider';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    width: '100%',
+    maxWidth: 1000,
     // backgroundColor: theme.palette.background.paper,
     // margin:theme.spacing(0),
   },
@@ -78,9 +78,10 @@ const ReviewWriteSub = (props) => {
   const [value, setValue] = React.useState(0);
 
   return (
-    <Grid item xs={12} md={12}>
+   
 
       <div className={classes.root}>
+         <Grid item xs={12} md={12} justify="center">
         <Grid container justify="center" item xs={12} md={12} className={classes.margin}>
           <Typography variant="h4">
             네네치킨
@@ -155,8 +156,9 @@ const ReviewWriteSub = (props) => {
             등록 취소
           </Button>
         </Grid>
+        </Grid >
       </div>
-    </Grid >
+
   );
 }
 

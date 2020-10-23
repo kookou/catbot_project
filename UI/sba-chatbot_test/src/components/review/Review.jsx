@@ -18,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  maxwidth:{
-    maxWidth: 912,
-  },
+  // maxwidth:{
+  //   maxWidth: 912,
+  // },
   bg:{
     backgroundColor: theme.palette.background.paper,
   },
@@ -65,7 +65,6 @@ const Review = () =>
               <ShopInfo key={post.title} post={post} />
             ))}
           </Grid>
-
             <Grid container justify="center" spacing={5} className={useStyles.mainGrid}>
               <MenuAndReviewArea/>
             </Grid>

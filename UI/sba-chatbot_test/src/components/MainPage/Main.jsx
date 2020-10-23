@@ -4,13 +4,13 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Header from '../Header';
-import ShopInfo from '../Review/ShopInfo';
-import MenuAndReviewArea from '../Review/MenuAndReviewArea';
 import Footer from '../Footer';
 import NewHeader from '../NewHeader';
-import Navigation from '../Navigation';
+import MainNavigation from './MainNavigation';
 import Paper from '@material-ui/core/Paper';
-import ShopList from './ShopList';
+import MainList from './MainList';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 
 
@@ -27,9 +27,6 @@ const useStyles = makeStyles((theme) => ({
         width : 1050,
         margin:"auto"
     },
-    spacing:{
-        marginRight : theme.spacing(3),
-  }
 }));
 
 const sections = [
@@ -50,89 +47,94 @@ const shoplistl = [
         shop_name: '네네치킨1',
         shop_rev_avg:
             '4.5',
+        pred_rev_avg:
+            '4.7',
         shop_rev_amt:
             '304',
         food_name: '뿌링치즈볼'
+
+    },
+    {
+        shop_img: 'https://rev-static.yogiyo.co.kr/restaurants/thumbnail/stock_img/족발보쌈/족발/5fb02edc8f0531ede141222ae99cafcc_tn.jpg',
+        shop_name: '네네치킨1',
+        shop_rev_avg:
+            '4.5',
+        pred_rev_avg:
+            '4.7',
+        shop_rev_amt:
+            '304',
+        food_name: '뿌링치즈볼'
+
+    },
+    {
+        shop_img: 'https://rev-static.yogiyo.co.kr/franchise/thumbnail/20181228144604231071_c1167f872d2823627279e43082f41e0e_tn.jpg',
+        shop_name: '네네치킨1',
+        shop_rev_avg:
+            '4.5',
+        pred_rev_avg:
+            '4.7',
+        shop_rev_amt:
+            '304',
+        food_name: '뿌링치즈볼'
+
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨2',
+        shop_name: '네네치킨1',
         shop_rev_avg:
             '4.5',
+        pred_rev_avg:
+            '4.7',
         shop_rev_amt:
             '304',
         food_name: '뿌링치즈볼'
+
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨3',
+        shop_name: '네네치킨1',
         shop_rev_avg:
             '4.5',
+        pred_rev_avg:
+            '4.7',
         shop_rev_amt:
             '304',
         food_name: '뿌링치즈볼'
+
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨4',
+        shop_name: '네네치킨1',
         shop_rev_avg:
             '4.5',
+        pred_rev_avg:
+            '4.7',
         shop_rev_amt:
             '304',
         food_name: '뿌링치즈볼'
+
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨5',
+        shop_name: '네네치킨1',
         shop_rev_avg:
             '4.5',
+        pred_rev_avg:
+            '4.7',
         shop_rev_amt:
             '304',
         food_name: '뿌링치즈볼'
+
     },
-    {
-        shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨6',
-        shop_rev_avg:
-            '4.5',
-        shop_rev_amt:
-            '304',
-        food_name: '뿌링치즈볼'
-    },
-    {
-        shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨7',
-        shop_rev_avg:
-            '4.5',
-        shop_rev_amt:
-            '304',
-        food_name: '뿌링치즈볼'
-    },
-    {
-        shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨8',
-        shop_rev_avg:
-            '4.5',
-        shop_rev_amt:
-            '304',
-        food_name: '뿌링치즈볼'
-    },
-    {
-        shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨9',
-        shop_rev_avg:
-            '4.5',
-        shop_rev_amt:
-            '304',
-        food_name: '뿌링치즈볼'
-    },
+    
+ 
 
 ];
 
 
 
 
-const ShopMain = () => {
+const Main = () => {
     const classes = useStyles();
 
     return (
@@ -140,18 +142,27 @@ const ShopMain = () => {
             <CssBaseline />
             <Header title="Blog" sections={sections} />
             <NewHeader />
-            <Navigation />
-                <Grid container  className={classes.wd} >
-                        {shoplistl.map((post) => (
-                            <Grid className={classes.spacing}>
-                            <ShopList key={post.shop_name} post={post} />
-                            </Grid>
-                        ))}
+            <MainNavigation/>
+                <Grid container justify="center" className={classes.wd}>
+                <Grid container justify="center">
+                <Typography variant="h5" >
+                    회원님의 취향을 분석한 추천 매장 리스트
+                </Typography>
+
+                <Divider variant="middle" />
                 </Grid>
+                    <Grid container justify="center"spacing={2} >
+                        {shoplistl.map((post) => (
+                            <MainList key={post.shop_name} post={post}  />
+                        ))}
+                        
+                    </Grid>
+                </Grid>
+                
             <Footer title="Footer" description="Something here to give the footer a purpose!" />
         </React.Fragment>
     );
 }
 
 
-export default ShopMain
+export default Main

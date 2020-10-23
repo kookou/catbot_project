@@ -1,19 +1,20 @@
 import React from 'react'
-import {SignIn, Review, SignUp, Blog, ReviewWritePage, UserInfo, UserPage,ShopMain} from '../components'
+import {SignIn, Review, SignUp, Main, ReviewWritePage, UserInfo, UserPage,ShopMain} from '../components'
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 
 
-const Main = () => <>
+const Page = () => <>
         <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={Blog}/>
+                    <Route exact path="/" component={Main}/>
+                    <Route path="/main" component={Main}/>
                     <Route path="/signin" component={SignIn}/>
                     <Route path="/signup" component={SignUp}/>
                     <Route path="/review" component={Review}/>
                     <Route path="/reviewwrite" component={ReviewWritePage}/>
                     <Route path="/userinfo" component={UserInfo}/>
                     <Route path="/userpage" component={UserPage}/>
-                    <Route path="/main" component={ShopMain}/>
+                    <Route path="/shopmain" component={ShopMain}/>
                     {/* <Redirect from={"/history"} to ={"/about/history"}/>
                     <Redirect from={"/services"} to ={"/about/services"}/>
                     <Redirect from={"/location"} to ={"/about/location"}/>
@@ -26,4 +27,4 @@ const Main = () => <>
     </>
 
 
-export default Main
+export default Page

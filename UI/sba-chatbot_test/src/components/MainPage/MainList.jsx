@@ -16,6 +16,8 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import Link from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
+import CardActions from '@material-ui/core/CardActions';
 
 
 
@@ -23,11 +25,11 @@ const useStyles = makeStyles((theme) => ({
     divroot: {
         flexGrow: 1,
         marginTop: theme.spacing(3),
-        
+
     },
     root: {
         display: 'flex',
-        width:500,
+        width: 245,
     },
     details: {
         display: 'flex',
@@ -38,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
     cover: {
         width: 150,
-        height:150,
+        height: 150,
     },
 
     paper: {
@@ -46,7 +48,10 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
-  
+    media: {
+        height: 140,
+        
+      },
 }));
 
 function HalfRating() {
@@ -60,38 +65,42 @@ function HalfRating() {
 }
 
 
-const ShopList = (props) => {
+const MainList = (props) => {
     const classes = useStyles();
     const theme = useTheme();
     const { post } = props;
 
     return (
+        
         <div className={classes.divroot} spacing={2}>
-            <Grid container justify="center"  >
+
+            <Grid container justify="flex-start"  >
                 <Grid>
-                    <CardActionArea href="/review" >
-                        <Card className={classes.root} square elevation={0} variant="outlined">
-                            <Grid item xs className={classes.details}>
-                                <CardContent className={classes.content}>
-                                    <Typography component="h5" variant="h6">
-                                        {post.shop_name}
-                                    </Typography>
-                                    <Typography variant="subtitle1" color="textSecondary">
-                                        {post.shop_rev_avg} / 예상 4.7
-                                    </Typography>
-                                    <Typography variant="subtitle1" color="textSecondary">
-                                        리뷰  {post.shop_rev_amt} / {post.food_name}
-                                    </Typography>
-                                </CardContent>
-                            </Grid>
+                    
+                    <Card className={classes.root} square elevation={0} variant="outlined">
+                        <CardActionArea>
                             <CardMedia
-                                className={classes.cover}
+                                className={classes.media}
                                 image={post.shop_img}
+                                title="Contemplative Reptile"
                             />
-                        </Card>
-                    </CardActionArea>
+                            <CardContent>
+                                <Typography gutterBottom variant="h6" component="h6">
+                                    {post.shop_name}
+                                </Typography>
+                                <Typography variant="subtitle1" color="textSecondary" component="p">
+                                    {post.shop_rev_avg} 예상 평점 {post.pred_rev_avg}
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                   리뷰 {post.shop_rev_amt}
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                   대표메뉴 {post.food_name}
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
                 </Grid>
-                
 
             </Grid>
         </div >
@@ -100,8 +109,8 @@ const ShopList = (props) => {
     );
 }
 
-ShopList.propTypes = {
+MainList.propTypes = {
     post: PropTypes.object,
 };
 
-export default ShopList
+export default MainList
