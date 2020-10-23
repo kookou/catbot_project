@@ -74,15 +74,13 @@ const ReviewDescription = (props) => {
                 {post.review_cmnt}
               </Typography>
               <Hidden xsDown>
-               
-                {/* <GridList cellHeight={200} className={classes.gridList} cols={post.length}>
-                  {post.map((img) => (
-                    <GridListTile key={img.name} cols={img.cols || 1}>
-                      <img src={img.review_img} />
+                <GridList cellHeight={200} className={classes.gridList} cols={post.review_img.length}>
+                  {post.map((tile) => (
+                    <GridListTile key={tile.review_img} cols={tile.cols || 1}>
+                      <img src={tile.review_img}/>
                     </GridListTile>
                   ))}
-                  </GridList> */}
-
+                </GridList>
               </Hidden>
             </CardContent>
           </div>

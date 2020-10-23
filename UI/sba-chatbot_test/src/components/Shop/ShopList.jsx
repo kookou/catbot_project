@@ -85,7 +85,7 @@ const ShopList = (props) => {
                         <Card className={classes.root} square elevation={0} variant="outlined">
                             <Grid item xs className={classes.details}>
                                 <CardContent className={classes.content}>
-                                    <Typography component="h5" variant="h6" className={classes.none}>
+                                    <Typography variant="h6" >
                                        {post.shop_name}
                                     </Typography>
                                     

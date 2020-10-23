@@ -71,7 +71,7 @@ const shoplistl = [
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨sdfasdfsdfasdfsafdasdfasfgasdfadfasdfasdfasdfdf3',
+        shop_name: '네네치킨 네네치킨 네네치킨 네네치킨 네네치킨 네네치킨 ',
         shop_rev_avg:
             '4.5',
         shop_rev_amt:

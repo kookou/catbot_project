@@ -39,7 +39,6 @@ const sections = [
       <CssBaseline />
         <Header title="Blog" sections={sections} />
         <NewHeader/>
-        <Navigation/>
           <Grid container justify="center" spacing={5} className={useStyles.mainGrid}>
             <ReviewWriteSub/>
           </Grid>
