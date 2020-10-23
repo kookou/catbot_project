@@ -18,15 +18,15 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
-    // paper: {
-    //     padding: theme.spacing(2),
-    //     textAlign: 'center',
-    //     color: theme.palette.text.secondary,
-    // },
-    wd:{
-        width : 1050,
-        margin:"auto"
+    wd: {
+        width: 1050,
+        margin: "auto",
+        marginTop : theme.spacing(3),
+        marginBottom : theme.spacing(6)
     },
+    title:{
+        marginBottom: theme.spacing(1),
+    }
 }));
 
 const sections = [
@@ -51,7 +51,8 @@ const shoplistl = [
             '4.7',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg: '4.7'
 
     },
     {
@@ -63,7 +64,8 @@ const shoplistl = [
             '4.7',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg: '4.7'
 
     },
     {
@@ -75,7 +77,8 @@ const shoplistl = [
             '4.7',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg: '4.7'
 
     },
     {
@@ -87,47 +90,10 @@ const shoplistl = [
             '4.7',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg: '4.7'
 
     },
-    {
-        shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨1',
-        shop_rev_avg:
-            '4.5',
-        pred_rev_avg:
-            '4.7',
-        shop_rev_amt:
-            '304',
-        food_name: '뿌링치즈볼'
-
-    },
-    {
-        shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨1',
-        shop_rev_avg:
-            '4.5',
-        pred_rev_avg:
-            '4.7',
-        shop_rev_amt:
-            '304',
-        food_name: '뿌링치즈볼'
-
-    },
-    {
-        shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨1',
-        shop_rev_avg:
-            '4.5',
-        pred_rev_avg:
-            '4.7',
-        shop_rev_amt:
-            '304',
-        food_name: '뿌링치즈볼'
-
-    },
-    
- 
 
 ];
 
@@ -142,23 +108,36 @@ const Main = () => {
             <CssBaseline />
             <Header title="Blog" sections={sections} />
             <NewHeader />
-            <MainNavigation/>
-                <Grid container justify="center" className={classes.wd}>
-                <Grid container justify="center">
-                <Typography variant="h5" >
-                    회원님의 취향을 분석한 추천 매장 리스트
-                </Typography>
-
+            <MainNavigation />
+            <Grid container justify="center" className={classes.wd}>
+                <Grid container justify="center" className={classes.title}>
+                    <Typography variant="h5" >
+                        회원님의 취향을 분석한 추천 매장 리스트
+                    </Typography>
+                </Grid>
                 <Divider variant="middle" />
+                <Grid container justify="center" spacing={2} >
+                    {shoplistl.map((post) => (
+                        <MainList key={post.shop_name} post={post} />
+                    ))}
+
                 </Grid>
-                    <Grid container justify="center"spacing={2} >
-                        {shoplistl.map((post) => (
-                            <MainList key={post.shop_name} post={post}  />
-                        ))}
-                        
-                    </Grid>
+            </Grid>
+            <Grid container justify="center" className={classes.wd}>
+                <Grid container justify="center" className={classes.title}>
+                    <Typography variant="h5" >
+                    인기 맛집 리스트
+                    </Typography>
                 </Grid>
-                
+                <Divider variant="middle" />
+                <Grid container justify="center" spacing={2} >
+                    {shoplistl.map((post) => (
+                        <MainList key={post.shop_name} post={post} />
+                    ))}
+
+                </Grid>
+            </Grid>
+
             <Footer title="Footer" description="Something here to give the footer a purpose!" />
         </React.Fragment>
     );

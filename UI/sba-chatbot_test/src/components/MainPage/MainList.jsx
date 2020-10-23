@@ -76,9 +76,8 @@ const MainList = (props) => {
 
             <Grid container justify="flex-start"  >
                 <Grid>
-                    
-                    <Card className={classes.root} square elevation={0} variant="outlined">
-                        <CardActionArea>
+                    <Card className={classes.root} square elevation={0} variant="outlined" >
+                        <CardActionArea href="/review">
                             <CardMedia
                                 className={classes.media}
                                 image={post.shop_img}
@@ -88,12 +87,20 @@ const MainList = (props) => {
                                 <Typography gutterBottom variant="h6" component="h6">
                                     {post.shop_name}
                                 </Typography>
-                                <Typography variant="subtitle1" color="textSecondary" component="p">
-                                    {post.shop_rev_avg} 예상 평점 {post.pred_rev_avg}
-                                </Typography>
+                                <Grid container direction="row">
+                                    <Rating name="iconstar" defaultValue={1} max={1}/> 
+                                        <Typography variant="subtitle1" color="textSecondary">
+                                             {post.shop_rev_avg} /
+                                        </Typography>
+                                    <Rating name="iconstar" defaultValue={1} max={1}/> 
+                                        <Typography variant="subtitle1" color="textSecondary">
+                                            예상 {post.shop_pred_avg}
+                                        </Typography>
+                                </Grid>
                                 <Typography variant="body2" color="textSecondary" component="p">
                                    리뷰 {post.shop_rev_amt}
                                 </Typography>
+                                
                                 <Typography variant="body2" color="textSecondary" component="p">
                                    대표메뉴 {post.food_name}
                                 </Typography>

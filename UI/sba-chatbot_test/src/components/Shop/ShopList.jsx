@@ -19,6 +19,7 @@ import Link from '@material-ui/core/Link';
 
 
 
+
 const useStyles = makeStyles((theme) => ({
     divroot: {
         flexGrow: 1,
@@ -28,13 +29,18 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         width:500,
+        
     },
     details: {
         display: 'flex',
         flexDirection: 'column',
+        
     },
     content: {
-        // flex: '1 0 auto',
+        padding: 16,
+        '&:last-child': {
+          paddingBottom: 0,
+        },
     },
     cover: {
         width: 150,
@@ -46,6 +52,12 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
+    none:{
+        padding:0
+    },
+    star:{
+        marginBottom:10
+    }
   
 }));
 
@@ -54,7 +66,7 @@ function HalfRating() {
     const [value, setValue] = React.useState(4);
     return (
         <div className={classes.root}>
-            <Rating name="read-only" value={value} readOnly />
+            <Rating name="read-only" readOnly  max={1} />
         </div>
     );
 }
@@ -73,12 +85,20 @@ const ShopList = (props) => {
                         <Card className={classes.root} square elevation={0} variant="outlined">
                             <Grid item xs className={classes.details}>
                                 <CardContent className={classes.content}>
-                                    <Typography component="h5" variant="h6">
-                                        {post.shop_name}
+                                    <Typography component="h5" variant="h6" className={classes.none}>
+                                       {post.shop_name}
                                     </Typography>
-                                    <Typography variant="subtitle1" color="textSecondary">
-                                        {post.shop_rev_avg} / 예상 4.7
-                                    </Typography>
+                                    
+                                    <Grid container direction="row">
+                                        <Rating name="iconstar" defaultValue={1} max={1}/> 
+                                            <Typography variant="subtitle1" color="textSecondary">
+                                             {post.shop_rev_avg} /
+                                            </Typography>
+                                        <Rating name="iconstar" defaultValue={1} max={1}/> 
+                                            <Typography variant="subtitle1" color="textSecondary">
+                                             예상 {post.shop_pred_avg}
+                                            </Typography>
+                                    </Grid>
                                     <Typography variant="subtitle1" color="textSecondary">
                                         리뷰  {post.shop_rev_amt} / {post.food_name}
                                     </Typography>

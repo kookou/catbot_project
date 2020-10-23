@@ -40,7 +40,7 @@ const sections = [
   { title: 'Travel', url: '#' },
 ];
 
-const shopInfo = [
+const shopinfo = [
   {
     shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
     shop_name: '헐피자',
@@ -61,12 +61,12 @@ const Review = () =>
         <NewHeader/>
         <Navigation/>
           <Grid container justify="center" >
-            {shopInfo.map((post) => (
-              <ShopInfo key={post.title} post={post} />
+            {shopinfo.map((post) => (
+              <ShopInfo key={post.shop_name} post={post} />
             ))}
           </Grid>
             <Grid container justify="center" spacing={5} className={useStyles.mainGrid}>
-              <MenuAndReviewArea/>
+                  <MenuAndReviewArea />
             </Grid>
       <Footer title="Footer" description="Something here to give the footer a purpose!" />
     </React.Fragment>

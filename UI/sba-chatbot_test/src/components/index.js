@@ -7,5 +7,6 @@ export {default as ReviewWritePage} from './Review/ReviewWritePage'
 export {default as UserInfo} from './User/UserInfo'
 export {default as UserPage} from './User/UserPage'
 export {default as ShopMain} from './Shop/ShopMain'
+export {default as Order} from './Order/Order'
 
 

@@ -11,6 +11,7 @@ import NewHeader from '../NewHeader';
 import Navigation from '../Navigation';
 import Paper from '@material-ui/core/Paper';
 import ShopList from './ShopList';
+import Pagination from '@material-ui/lab/Pagination';
 
 
 
@@ -29,7 +30,10 @@ const useStyles = makeStyles((theme) => ({
     },
     spacing:{
         marginRight : theme.spacing(3),
-  }
+    },
+    pagi:{
+        marginTop : theme.spacing(5)
+    }
 }));
 
 const sections = [
@@ -52,7 +56,8 @@ const shoplistl = [
             '4.5',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg : '4.7'
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
@@ -61,16 +66,18 @@ const shoplistl = [
             '4.5',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg : '4.7'
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
-        shop_name: '네네치킨3',
+        shop_name: '네네치킨sdfasdfsdfasdfsafdasdfasfgasdfadfasdfasdfasdfdf3',
         shop_rev_avg:
             '4.5',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg : '4.7'
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
@@ -79,7 +86,8 @@ const shoplistl = [
             '4.5',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg : '4.7'
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
@@ -88,7 +96,8 @@ const shoplistl = [
             '4.5',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg : '4.7'
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
@@ -97,7 +106,8 @@ const shoplistl = [
             '4.5',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg : '4.7'
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
@@ -106,7 +116,8 @@ const shoplistl = [
             '4.5',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg : '4.7'
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
@@ -115,7 +126,8 @@ const shoplistl = [
             '4.5',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg : '4.7'
     },
     {
         shop_img: 'https://www.yogiyo.co.kr/media/restaurant_logos/베이컨포테이토골드피자02_20131128_FoodAD_crop_200x200_I47tFRa.jpg',
@@ -124,7 +136,8 @@ const shoplistl = [
             '4.5',
         shop_rev_amt:
             '304',
-        food_name: '뿌링치즈볼'
+        food_name: '뿌링치즈볼',
+        shop_pred_avg : '4.7'
     },
 
 ];
@@ -147,6 +160,9 @@ const ShopMain = () => {
                             <ShopList key={post.shop_name} post={post} />
                             </Grid>
                         ))}
+                </Grid>
+                <Grid container justify="center" alignItems="flex-end" className={classes.pagi}>
+                    <Pagination count={10} color="primary" shape="rounded" size="large"/>
                 </Grid>
             <Footer title="Footer" description="Something here to give the footer a purpose!" />
         </React.Fragment>
