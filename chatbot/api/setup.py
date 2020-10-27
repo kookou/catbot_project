@@ -8,8 +8,8 @@ setuptools.setup(
     version='1.0',
     description='Python Distribution Utilities',
     long_description=long_description,
-    author='park',
-    author_email='nnaangee@gmail.com',
+    author='tae',
+    author_email='taepd1@gmail.com',
     url='https://www.python.org/sigs/distutils-sig/',
     packages=setuptools.find_packages(),
     python_requires='>=3.7'
