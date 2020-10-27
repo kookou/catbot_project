@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import MainList from './MainList';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import axios from 'axios'
 
 
 
@@ -90,6 +91,15 @@ const shoplistl = [
 
 
 const Main = () => {
+        axios.get(`http://localhost:8080/`)
+        .then(res => {
+            alert(`Connection Success !!`)
+        }
+            
+        ).catch(
+            e => alert(`Failure`)
+        )
+
     const classes = useStyles();
 
     return (

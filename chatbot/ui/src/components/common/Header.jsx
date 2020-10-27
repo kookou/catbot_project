@@ -137,7 +137,7 @@ const Header = () => {
                         <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
                             <Link to="/main" className={classes.toolbarLink}>
                                 메추리
-                        </Link>
+                            </Link>
                         </Typography>
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
