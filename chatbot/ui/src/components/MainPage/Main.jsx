@@ -97,7 +97,7 @@ const Main = () => {
         }
             
         ).catch(
-            e => alert(`Failure`)
+            // e => alert(`Failure`)
         )
 
     const classes = useStyles();
