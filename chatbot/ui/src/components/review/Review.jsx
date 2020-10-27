@@ -42,7 +42,8 @@ const Review = ({match}) => {
   console.log(match.params.shopid)
   const [data, setData] = useState([])
   useEffect(() => {
-      axios.get(`http://localhost:8080/reivew/${match.params.shopid}`)
+      alert(match.params.shopid)
+      axios.get(`http://localhost:8080/shop/${match.params.shopid}`)
       .then(res=>{
           // alert(`List Success`)
           setData(res.data)

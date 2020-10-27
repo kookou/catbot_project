@@ -25,11 +25,11 @@ const App = () => {
                     <Route path="/main" component={Main} />
                     <Route path="/signin" component={SignIn} />
                     <Route path="/signup" component={SignUp} />
-                    <Route path="/review/:shopid" component={Review} />
+                    <Route path="/shop/:shopid" component={Review} />
                     <Route path="/reviewwrite" component={ReviewWritePage} />
                     <Route path="/userinfo" component={UserInfo} />
                     <Route path="/userpage" component={UserPage} />
-                    <Route path="/shop" component={ShopMain} />
+                    <Route path="/shops" component={ShopMain} />
                     <Route path="/order" component={Order} />
                     {/* <Redirect from={"/history"} to ={"/about/history"}/>
                     <Redirect from={"/services"} to ={"/about/services"}/>

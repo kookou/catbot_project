@@ -117,6 +117,8 @@ class ShopDao(ShopDto):
     def find_limit(cls):
         # sql = cls.query.join(FoodDto).filter(FoodDto.shop_id == cls.shop_id).all()
         sql = cls.query
+        # print(type(sql))
+
         df = pd.read_sql(sql.statement, sql.session.bind)
         df = df.head(10)
         return json.loads(df.to_json(orient='records'))
@@ -140,9 +142,9 @@ class Shops(Resource):
     @staticmethod
     def get():
         print('select 10')
-        shop = ShopDao.find_limit()
+        shops = ShopDao.find_limit()
         # test = ShopDao.find_cat()
-        return shop, 200
+        return shops, 200
 
 
 class Shop(Resource):
@@ -154,10 +156,9 @@ class Shop(Resource):
     #     shop = ShopDao.find_by_shopid(shopid)
     #     return shop.json(), 200
     @staticmethod
-    def get(shopid):
+    def get(shopid : str):
         print('?????????????????????????????')
-        args = parser.parser_args()
-        print(f'{args["shopid"]} 셀렉트')
+        print(f'{shopid} 셀렉트')
         shop = ShopDao.find_by_shopid(shopid)
         return shop.json(), 200
 

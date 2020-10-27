@@ -62,7 +62,7 @@ const ShopList = (props) => {
 
     return (
         <div className={classes.divroot} spacing={2}>
-            <Link to={"/review/" + post.shop_id} className={classes.toolbarLink}>
+            <Link to={"/shop/" + post.shop_id} className={classes.toolbarLink}>
                 <Grid container justify="center"  >
                     <CardActionArea >
                         <Card className={classes.root} square elevation={0} variant="outlined">
