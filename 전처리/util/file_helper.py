@@ -20,6 +20,11 @@ reviewcol = [
 shopcol = [
     'shop_id','shop_name','shop_addr','shop_img','shop_lat','shop_lng','shop_rev_avg','shop_rev_amt','opentime','cat'
 ]
+
+fooddata =[
+    'customer','answer'
+]
+
 @dataclass
 class FileReader:
     # def __init__(self, context, fname, train, test, id, label):
@@ -177,3 +182,56 @@ class FileReader:
 
 
 
+    def json_to_csv_data(self, json_data):
+        with open(json_data, "r", encoding="UTF-8-sig", newline="") as input_file, \
+                open(self.new_file(), "w", encoding="UTF-8-sig", newline="") as output_file:
+            input_data = json.load(input_file)
+            result = []
+
+            for item in input_data:
+                if item['id'] != '' :
+                    id = item['id']
+                    reviews = item['reviews']
+                    for idx in reviews:
+                        comment = idx['comment']
+                        comment = comment.replace('\r', ' ')
+                        comment = comment.replace('\n', ' ')
+                        img = idx['review_images']
+                        
+                        owner = idx['owner_reply'] 
+
+                        imsi = [idx['id'], comment, idx['rating_taste'], idx['rating_quantity'], idx['rating_delivery'],
+                        idx['time'],idx['nickname'],id,idx['menu_summary'],idx['id']]
+
+                        imglist =[]
+
+                        for imgidx in img:
+                            imglist.append(imgidx['thumb'])
+                        imsi.append(imglist)
+
+                        if owner != None:
+                            ownercmnt = owner['comment']
+                            ownercmnt = ownercmnt.replace('\r', ' ')
+                            ownercmnt = ownercmnt.replace('\n', ' ')
+
+                            imsi.append(ownercmnt)
+                        
+                        # else :
+                        #     pass
+
+                        result.append(imsi)
+                            # print(imgidx['thumb'])
+
+                else : id = ''
+
+            csv_writer = csv.writer(output_file, delimiter=',')
+
+            try:
+                print("오니?1")
+                csv_writer.writerow(reviewcol)  # 컬럼 처리
+                print("오니?2")
+                for line in result:
+                    csv_writer.writerow(line)
+  
+            except:
+                print('no data')

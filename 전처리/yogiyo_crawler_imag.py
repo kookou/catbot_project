@@ -155,13 +155,6 @@ class YogiyoCrawler:
         reader.new_file()
         reader.json_to_csv(json_data)
 
-
-
-    def col(self,item):
-        pass
-        
-    
-
     def review_csv(self,json_data,start,end):
         reader = self.reader
         reader.context = os.path.join(baseurl, 'data/csv/review')
@@ -170,7 +163,18 @@ class YogiyoCrawler:
         reader.json_to_csv(json_data)
 
 
+    def data_csv(self,json_data,start,end):
+        reader = self.reader
+        reader.context = os.path.join(baseurl, 'data/alherbdata.csv')
+        reader.fname = f'fooddata.csv'
+        reader.new_file()
+        reader.json_to_csv(json_data)
 
+
+
+fooddata =[
+    'customer','answer', 'sentenceid', 'main', 'sub', 'value', 'dict','inbase'
+]
 
 # import numpy as np
 # a = np.array(list)
