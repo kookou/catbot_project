@@ -3,7 +3,6 @@ import os
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 baseurl = os.path.dirname(os.path.abspath(__file__))
-import pandas as pd
 from pandas import DataFrame
 import glob
 import csv
@@ -72,8 +71,7 @@ def excel_to_csv():
 # #========csv 합치기 ================
 
 def merge_csv():
-
-    output_path = 'C:/Users/user/Desktop/chatbot/전처리/FoodACaffeData.csv'
+    output_path = 'C:/Users/user/Desktop/chatbot/전처리/running.csv'
     first_file = True
     input_path = r'C:/Users/user/Desktop/chatbot/전처리'
 
@@ -109,5 +107,8 @@ def csv_to_csv():
 
 
 
+
+
+
 if __name__ == '__main__':
-    merge_csv()
+    excel_to_csv()
